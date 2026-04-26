@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
     title: "Emergency Exit Doors",
+    href: "/services/emergency-exit-doors",
     image: "/images/door-knob.jpg",
     alt: "Emergency exit door installation and repair Arlington",
     description:
@@ -11,6 +13,7 @@ const services = [
   },
   {
     title: "Door Hardware Replacements",
+    href: "/services/door-hardware-replacement",
     image: "/images/car-lock.jpg",
     alt: "Door hardware replacement service Arlington",
     description:
@@ -19,6 +22,7 @@ const services = [
   },
   {
     title: "Office / Commercial / Storefront Lockout",
+    href: "/services/commercial-storefront-lockout",
     image: "/images/office-latch.jpg",
     alt: "Office and storefront lockout service Arlington — commercial door latch",
     description:
@@ -27,6 +31,7 @@ const services = [
   },
   {
     title: "Key Stuck in Lock",
+    href: "/services/key-extraction-lock-repair",
     image: "/images/night-lock.jpg",
     alt: "Key stuck in lock Arlington — emergency extraction",
     description:
@@ -82,13 +87,20 @@ export default function Services() {
                 </p>
                 <p className="text-xs text-red-600 font-semibold mb-4">{service.detail}</p>
 
-                {/* CTA pinned to bottom */}
-                <a
-                  href="tel:+17032440559"
-                  className="block text-center bg-gray-900 hover:bg-red-600 text-white text-sm font-bold py-2.5 rounded-lg transition-colors duration-200 mt-auto"
-                >
-                  Call for Help Now
-                </a>
+                <div className="grid grid-cols-1 gap-2 mt-auto">
+                  <Link
+                    href={service.href}
+                    className="block text-center border border-gray-300 hover:border-red-500 text-gray-800 hover:text-red-600 text-sm font-bold py-2.5 rounded-lg transition-colors duration-200"
+                  >
+                    Learn More
+                  </Link>
+                  <a
+                    href="tel:+17032440559"
+                    className="block text-center bg-gray-900 hover:bg-red-600 text-white text-sm font-bold py-2.5 rounded-lg transition-colors duration-200"
+                  >
+                    Call for Help Now
+                  </a>
+                </div>
               </div>
             </div>
           ))}

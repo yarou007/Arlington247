@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -22,10 +24,26 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Services</h4>
             <ul className="space-y-1 text-sm">
-              <li>Emergency Exit Doors</li>
-              <li>Door Hardware Replacements</li>
-              <li>Office / Storefront Lockout</li>
-              <li>Key Stuck / Extraction</li>
+              <li>
+                <Link href="/services/emergency-exit-doors" className="hover:text-white transition-colors">
+                  Emergency Exit Doors
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/door-hardware-replacement" className="hover:text-white transition-colors">
+                  Door Hardware Replacements
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/commercial-storefront-lockout" className="hover:text-white transition-colors">
+                  Office / Storefront Lockout
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/key-extraction-lock-repair" className="hover:text-white transition-colors">
+                  Key Stuck / Extraction
+                </Link>
+              </li>
               <li>Commercial Lock Service</li>
             </ul>
           </div>
@@ -58,8 +76,8 @@ export default function Footer() {
             &copy; {year} arlington247lockrepair. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
