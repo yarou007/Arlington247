@@ -68,6 +68,18 @@ export default function Footer() {
               </li>
               <li>License #VA-LOCK-2847</li>
             </ul>
+
+            <div className="mt-4 rounded-xl border border-gray-800 bg-gray-950/40 p-3 text-xs leading-relaxed">
+              <p className="text-white font-semibold">Arlington247 Lock Repair</p>
+              <p>Service Area: Arlington, VA 22201</p>
+              <p>
+                Phone:{" "}
+                <a href="tel:+17032440559" className="text-amber-400 font-semibold hover:text-amber-300">
+                  (703) 244-0559
+                </a>
+              </p>
+              <p className="text-green-400">Available 24/7</p>
+            </div>
           </div>
         </div>
 

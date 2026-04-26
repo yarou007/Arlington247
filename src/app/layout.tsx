@@ -9,11 +9,11 @@ const BASE_URL = "https://arlington247lockrepair.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Emergency Locksmith Arlington VA | (703) 244-0559",
+    default: "Emergency Locksmith Arlington VA | 24/7 Lockout Help",
     template: "%s | arlington247lockrepair",
   },
   description:
-    "Locked out in Arlington, VA? 24/7 emergency locksmith — home, car & office lockouts. 20-min response. Licensed & insured. Call (703) 244-0559.",
+    "Need an emergency locksmith in Arlington VA? 24/7 lockout service for homes, cars, offices, doors, hardware repair and key extraction.",
   keywords: [
     "emergency locksmith arlington",
     "locksmith arlington va",
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
     "weekend locksmith arlington va",
   ],
   openGraph: {
-    title: "Emergency Locksmith Arlington VA | (703) 244-0559",
+    title: "Emergency Locksmith Arlington VA | 24/7 Lockout Help",
     description:
-      "Locked out in Arlington, VA? 24/7 emergency locksmith — home, car & office lockouts. 20-min response. Licensed & insured. Call (703) 244-0559.",
+      "Need an emergency locksmith in Arlington VA? 24/7 lockout service for homes, cars, offices, doors, hardware repair and key extraction.",
     url: BASE_URL,
     siteName: "arlington247lockrepair",
     locale: "en_US",
@@ -81,9 +81,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Emergency Locksmith Arlington VA | (703) 244-0559",
+    title: "Emergency Locksmith Arlington VA | 24/7 Lockout Help",
     description:
-      "Locked out in Arlington, VA? 24/7 emergency locksmith — home, car & office lockouts. 20-min response. Licensed & insured. Call (703) 244-0559.",
+      "Need an emergency locksmith in Arlington VA? 24/7 lockout service for homes, cars, offices, doors, hardware repair and key extraction.",
     images: ["/images/keys-in-lock.jpg"],
   },
   robots: {
@@ -109,97 +109,25 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Locksmith"],
-  "@id": BASE_URL,
-  name: "arlington247lockrepair",
-  description:
-    "24/7 emergency locksmith service in Arlington, VA. Home lockout, car lockout, office lockout, key extraction. Fast 20-minute response. Licensed & insured.",
+  "@type": "Locksmith",
+  name: "Arlington247 Lock Repair",
+  url: "https://arlington247lockrepair.com/",
   telephone: "+17032440559",
-  url: BASE_URL,
-  image: `${BASE_URL}/images/keys-in-lock.jpg`,
+  areaServed: {
+    "@type": "City",
+    name: "Arlington",
+    addressRegion: "VA",
+    addressCountry: "US",
+  },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Arlington",
     addressLocality: "Arlington",
     addressRegion: "VA",
     postalCode: "22201",
     addressCountry: "US",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 38.8816,
-    longitude: -77.091,
-  },
-  areaServed: [
-    { "@type": "City", name: "Arlington" },
-    { "@type": "AdministrativeArea", name: "Arlington County" },
-  ],
-  serviceArea: {
-    "@type": "GeoCircle",
-    geoMidpoint: {
-      "@type": "GeoCoordinates",
-      latitude: 38.8816,
-      longitude: -77.091,
-    },
-    geoRadius: "15",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-    ],
-    opens: "00:00",
-    closes: "23:59",
-  },
+  openingHours: "Mo-Su 00:00-23:59",
   priceRange: "$$",
-  currenciesAccepted: "USD",
-  paymentAccepted: "Cash, Credit Card, Debit Card",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    bestRating: "5",
-    worstRating: "1",
-    reviewCount: "512",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Locksmith Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Home Lockout Service",
-          description: "Emergency residential lockout service in Arlington, VA. Houses, condos, apartments.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Car Lockout Service",
-          description: "Emergency auto lockout service in Arlington, VA. All makes and models.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Office / Commercial Lockout Service",
-          description: "Emergency commercial lockout service in Arlington, VA. Offices, retail, warehouses.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Key Extraction & Lock Repair",
-          description: "Broken key extraction and on-the-spot lock repair in Arlington, VA.",
-        },
-      },
-    ],
-  },
-  sameAs: [],
 };
 
 const faqJsonLd = {

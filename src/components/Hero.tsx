@@ -6,7 +6,7 @@ export default function Hero() {
       {/* Background image */}
       <Image
         src="/images/keys-in-lock.jpg"
-        alt="Emergency locksmith Arlington — keys in lock"
+        alt="Emergency locksmith Arlington VA keys in lock"
         fill
         priority
         className="object-cover object-center"
@@ -24,12 +24,12 @@ export default function Hero() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight text-shadow mb-4 sm:mb-6">
-          Locked Out in Arlington?{" "}
+          Emergency Locksmith Arlington VA: Locked Out?{" "}
           <span className="text-amber-400">We&apos;ll Be There in 20 Minutes.</span>
         </h1>
 
         <p className="text-base sm:text-xl text-gray-200 max-w-2xl mx-auto mb-6 sm:mb-8 text-shadow">
-          Fast, affordable emergency locksmith service — available{" "}
+          Fast, affordable 24/7 locksmith Arlington service — available{" "}
           <strong className="text-white">24 hours a day, 7 days a week</strong> across
           Arlington County. No hidden fees. Licensed &amp; insured.
         </p>

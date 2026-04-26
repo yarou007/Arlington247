@@ -6,7 +6,7 @@ const services = [
     title: "Emergency Exit Doors",
     href: "/services/emergency-exit-doors",
     image: "/images/door-knob.jpg",
-    alt: "Emergency exit door installation and repair Arlington",
+    alt: "Residential locksmith Arlington door lock and emergency exit door repair Arlington",
     description:
       "Need emergency exit door installation, repair, or compliance inspection in Arlington? We handle panic bars, fire-rated doors, and ADA-compliant exits.",
     detail: "Panic bars · Fire-rated doors · ADA compliance · Inspections",
@@ -15,7 +15,7 @@ const services = [
     title: "Door Hardware Replacements",
     href: "/services/door-hardware-replacement",
     image: "/images/car-lock.jpg",
-    alt: "Door hardware replacement service Arlington",
+    alt: "Door hardware repair Arlington deadbolt and handle service",
     description:
       "Worn-out or broken door hardware? We replace knobs, levers, hinges, closers, deadbolts, and commercial-grade handles — fast and affordable.",
     detail: "Knobs · Levers · Hinges · Closers · Deadbolts",
@@ -24,7 +24,7 @@ const services = [
     title: "Office / Commercial / Storefront Lockout",
     href: "/services/commercial-storefront-lockout",
     image: "/images/office-latch.jpg",
-    alt: "Office and storefront lockout service Arlington — commercial door latch",
+    alt: "Commercial lockout Arlington office and storefront door latch",
     description:
       "Locked out of your Arlington office, storefront, or business? We service commercial deadbolts, panic bars, glass storefront locks, and access control doors.",
     detail: "Offices, retail, storefronts, warehouses",
@@ -33,7 +33,7 @@ const services = [
     title: "Key Stuck in Lock",
     href: "/services/key-extraction-lock-repair",
     image: "/images/night-lock.jpg",
-    alt: "Key stuck in lock Arlington — emergency extraction",
+    alt: "Key extraction Arlington for broken or stuck keys",
     description:
       "Broken or stuck key in your lock? We extract it safely and get you back in — often without replacing the lock.",
     detail: "Key extraction · Lock repair · On-the-spot re-key",
@@ -50,11 +50,11 @@ export default function Services() {
             What We Do
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
-            Emergency Lockout Services in Arlington
+            24/7 Lockout Service Arlington for Homes, Cars and Businesses
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Whatever type of lockout you&apos;re facing, our Arlington locksmiths are
-            ready to respond — any time, day or night.
+            Whatever type of lockout you&apos;re facing, our emergency locksmith Arlington
+            VA team is ready to respond any time, day or night.
           </p>
         </div>
 
