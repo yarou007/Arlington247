@@ -23,16 +23,16 @@ export default function Hero() {
           Technicians Available Now in Arlington
         </div>
 
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight text-shadow mb-4 sm:mb-6">
-          Emergency Locksmith Arlington VA: Locked Out?{" "}
-          <span className="text-amber-400">We&apos;ll Be There in 20 Minutes.</span>
-        </h1>
+<h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight text-shadow mb-4 sm:mb-6">
+  Locked Out in Arlington VA?{" "}
+  <span className="text-amber-400">Emergency Locksmith Help in 20 Minutes</span>
+</h1>
 
-        <p className="text-base sm:text-xl text-gray-200 max-w-2xl mx-auto mb-6 sm:mb-8 text-shadow">
-          Fast, affordable 24/7 locksmith Arlington service — available{" "}
-          <strong className="text-white">24 hours a day, 7 days a week</strong> across
-          Arlington County. No hidden fees. Licensed &amp; insured.
-        </p>
+<p className="text-base sm:text-xl text-gray-200 max-w-2xl mx-auto mb-6 sm:mb-8 text-shadow">
+  Call <a href="tel:+17032440559" className="text-amber-400 font-bold hover:underline">(703) 244-0559</a> for 24/7 emergency locksmith Arlington service. 
+  We unlock homes, cars &amp; businesses across Arlington County —{" "}
+  <strong className="text-white">Ballston, Clarendon, Crystal City &amp; more</strong>. Licensed, insured, upfront pricing.
+</p>
 
         {/* Main CTA */}
         <a
