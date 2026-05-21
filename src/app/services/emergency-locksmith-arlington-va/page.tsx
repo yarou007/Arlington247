@@ -49,8 +49,8 @@ const features = [
   },
   {
     icon: "🛡️",
-    title: "No Damage Guarantee",
-    desc: "Professional techniques that preserve your locks, doors, and property.",
+    title: "Non-Destructive Entry First",
+    desc: "Whenever possible, we use lock-safe techniques to reduce avoidable damage.",
   },
   {
     icon: "📱",
@@ -58,9 +58,9 @@ const features = [
     desc: "Real person answers every call, any time - day, night, or holiday.",
   },
   {
-    icon: "🏆",
-    title: "500+ 5-Star Reviews",
-    desc: "Trusted by Arlington residents and businesses for reliable emergency service.",
+    icon: "📍",
+    title: "Local Arlington Coverage",
+    desc: "Mobile locksmith support across Arlington neighborhoods, homes, and business districts.",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function EmergencyLocksmithPage() {
       <div className="bg-red-600 text-white text-center py-3">
         <p className="font-bold tracking-wide">
           🚨 LOCKED OUT RIGHT NOW? CALL IMMEDIATELY — {" "}
-          <a href="tel:+17032440559" className="underline hover:text-amber-300">
+          <a href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559" className="underline hover:text-amber-300">
             (703) 244-0559
           </a>
         </p>
@@ -144,7 +144,7 @@ export default function EmergencyLocksmithPage() {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center justify-center gap-3 bg-amber-500 hover:bg-amber-400 text-gray-900 font-extrabold text-xl px-10 py-5 rounded-xl transition-colors phone-pulse"
             >
               <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -171,8 +171,8 @@ export default function EmergencyLocksmithPage() {
               <div className="text-sm text-gray-400">Always Available</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-amber-400">500+</div>
-              <div className="text-sm text-gray-400">Happy Customers</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-amber-400">Call</div>
+              <div className="text-sm text-gray-400">Direct Dispatch</div>
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function EmergencyLocksmithPage() {
               Not seeing your specific emergency? Call us — we handle all lock-related emergencies.
             </p>
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 rounded-xl transition-colors"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -275,7 +275,15 @@ export default function EmergencyLocksmithPage() {
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
               <h3 className="text-xl font-bold mb-2">Call Now</h3>
               <p className="text-gray-400">
-                Dial (703) 244-0559. A real person answers immediately — no waiting on hold.
+                Dial{" "}
+                <a
+                  href="tel:+17032440559"
+                  aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
+                  className="text-amber-300 underline underline-offset-2"
+                >
+                  (703) 244-0559
+                </a>
+                . A real person answers immediately with no waiting on hold.
               </p>
             </div>
             <div className="text-center">
@@ -296,7 +304,7 @@ export default function EmergencyLocksmithPage() {
 
           <div className="text-center mt-12">
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-gray-900 font-extrabold text-xl px-12 py-5 rounded-2xl phone-pulse transition-colors"
             >
               <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -359,7 +367,7 @@ export default function EmergencyLocksmithPage() {
             Don&apos;t wait. Our emergency locksmiths are standing by to help immediately.
           </p>
           <a
-            href="tel:+17032440559"
+            href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
             className="inline-flex items-center gap-3 bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-3xl px-14 py-6 rounded-2xl phone-pulse transition-colors"
           >
             <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">

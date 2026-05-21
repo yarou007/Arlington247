@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Residential Locksmith Arlington VA | 24/7 Home Lockout Help",
-    description: "Locked out of your house in Arlington VA? 24/7 residential locksmith service. 20-min arrival, no damage guarantee. Call (703) 244-0559!",
+    description: "Locked out of your house in Arlington VA? 24/7 residential locksmith service. Fast local response and upfront pricing. Call (703) 244-0559!",
     url: PAGE_URL,
   },
 };
@@ -116,7 +116,7 @@ export default function ResidentialLocksmithPage() {
           
           <div className="flex flex-wrap gap-4">
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-gray-900 font-extrabold text-lg px-8 py-4 rounded-xl transition-colors phone-pulse"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -138,13 +138,13 @@ export default function ResidentialLocksmithPage() {
               <span className="text-green-400">✓</span> Licensed & Insured
             </span>
             <span className="flex items-center gap-2 text-gray-300">
-              <span className="text-green-400">✓</span> No Damage Guarantee
+              <span className="text-green-400">✓</span> Non-Destructive Entry When Possible
             </span>
             <span className="flex items-center gap-2 text-gray-300">
               <span className="text-green-400">✓</span> Upfront Pricing
             </span>
             <span className="flex items-center gap-2 text-gray-300">
-              <span className="text-green-400">✓</span> 500+ Happy Customers
+              <span className="text-green-400">✓</span> Local Arlington Coverage
             </span>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function ResidentialLocksmithPage() {
             </div>
             <div className="bg-white rounded-2xl p-6 border border-gray-200">
               <div className="text-3xl mb-3">🛡️</div>
-              <h3 className="font-bold text-gray-900 text-lg mb-2">No Damage Guarantee</h3>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">Lock-Safe Entry Methods</h3>
               <p className="text-gray-600 text-sm">
                 We use professional techniques to get you back inside without damaging 
                 your lock, door, or frame.
@@ -229,7 +229,7 @@ export default function ResidentialLocksmithPage() {
 
           <div className="text-center">
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white font-extrabold text-lg px-10 py-4 rounded-xl transition-colors"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -266,7 +266,7 @@ export default function ResidentialLocksmithPage() {
 
           <p className="text-center text-gray-500 text-sm">
             Don&apos;t see your neighborhood? Call us at{" "}
-            <a href="tel:+17032440559" className="text-red-600 font-semibold hover:underline">
+            <a href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559" className="text-red-600 font-semibold hover:underline">
               (703) 244-0559
             </a>{" "}
             — we likely serve your area.
@@ -293,7 +293,7 @@ export default function ResidentialLocksmithPage() {
               <h3 className="font-bold text-gray-900 mb-2">Will you damage my lock or door?</h3>
               <p className="text-gray-600">
                 No. We use non-destructive entry techniques specifically designed to get you back 
-                inside without damaging your lock, door, or frame. We back this with our no-damage guarantee.
+                inside without damaging your lock, door, or frame whenever possible.
               </p>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-gray-200">
@@ -325,7 +325,7 @@ export default function ResidentialLocksmithPage() {
             24/7 to get you back inside quickly and safely.
           </p>
           <a
-            href="tel:+17032440559"
+            href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
             className="inline-flex items-center gap-3 bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-2xl px-12 py-5 rounded-2xl phone-pulse transition-colors"
           >
             <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">

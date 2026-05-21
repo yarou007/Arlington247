@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import UrgencyStrip from "@/components/UrgencyStrip";
+import QuickLinks from "@/components/QuickLinks";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
 import HowItWorks from "@/components/HowItWorks";
@@ -19,6 +20,7 @@ export default function ArlingtonLocksmithPage() {
       <Header />
       <Hero />
       <UrgencyStrip />
+      <QuickLinks />
       <Services />
       <WhyUs />
       <HowItWorks />

@@ -41,8 +41,15 @@ export default function TermsOfServicePage() {
             </p>
             <p>
               Except where required by law, service is provided without guarantees beyond
-              those expressly stated at the time of service. For support, call
-              (703) 244-0559.
+              those expressly stated at the time of service. For support, call{" "}
+              <a
+                href="tel:+17032440559"
+                aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
+                className="text-red-600 font-semibold hover:underline"
+              >
+                (703) 244-0559
+              </a>
+              .
             </p>
           </div>
         </div>

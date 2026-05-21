@@ -96,7 +96,7 @@ export default function KeyExtractionLockRepairPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-gray-900 font-extrabold px-6 py-3 rounded-xl transition-colors"
             >
               Call (703) 244-0559
@@ -258,7 +258,7 @@ export default function KeyExtractionLockRepairPage() {
             Don&apos;t risk damaging your lock. Our Arlington locksmiths extract broken keys safely and professionally.
           </p>
           <a
-            href="tel:+17032440559"
+            href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
             className="inline-flex items-center gap-3 bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-xl px-10 py-4 rounded-2xl phone-pulse transition-colors"
           >
             <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">

@@ -114,7 +114,7 @@ export default function CarLockoutPage() {
           
           <div className="flex flex-wrap gap-4">
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-400 text-gray-900 font-extrabold text-lg px-8 py-4 rounded-xl transition-colors phone-pulse"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -217,7 +217,7 @@ export default function CarLockoutPage() {
 
           <p className="text-center text-gray-600">
             Don&apos;t see your make? We likely still service it. Call{" "}
-            <a href="tel:+17032440559" className="text-red-600 font-semibold hover:underline">
+            <a href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559" className="text-red-600 font-semibold hover:underline">
               (703) 244-0559
             </a>{" "}
             to confirm.
@@ -265,7 +265,7 @@ export default function CarLockoutPage() {
 
           <div className="text-center mt-10">
             <a
-              href="tel:+17032440559"
+              href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
               className="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white font-extrabold text-lg px-10 py-4 rounded-xl transition-colors"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -352,7 +352,7 @@ export default function CarLockoutPage() {
             24/7 to get you back on the road fast.
           </p>
           <a
-            href="tel:+17032440559"
+            href="tel:+17032440559" aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
             className="inline-flex items-center gap-3 bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-2xl px-12 py-5 rounded-2xl phone-pulse transition-colors"
           >
             <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">

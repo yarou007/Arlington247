@@ -43,7 +43,15 @@ export default function PrivacyPolicyPage() {
             </p>
             <p>
               If you have questions about this policy or would like to request correction
-              or deletion of your information, call us at (703) 244-0559.
+              or deletion of your information, call us at{" "}
+              <a
+                href="tel:+17032440559"
+                aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
+                className="text-red-600 font-semibold hover:underline"
+              >
+                (703) 244-0559
+              </a>
+              .
             </p>
           </div>
         </div>
