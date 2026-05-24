@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import {
   BASE_URL,
@@ -9,11 +8,9 @@ import {
 } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
-const homeTitle = "24/7 Emergency Locksmith Arlington VA | Fast Lockout Help";
+const homeTitle = "Emergency Locksmith Arlington VA | 24/7 Lockout Help";
 const homeDescription =
-  "Locked out in Arlington VA? Call (703) 244-0559 for 24/7 emergency locksmith service. Fast mobile help for homes, cars, offices, storefronts, key extraction, lock repair and door hardware.";
+  "Locked out in Arlington VA? Call (703) 244-0559 for 24/7 emergency locksmith help, lockout service, key extraction and lock repair.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -90,7 +87,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className="pb-16 md:pb-0">
         <BreadcrumbSchema />
         {children}
       </body>

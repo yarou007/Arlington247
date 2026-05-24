@@ -1,58 +1,39 @@
 import Link from "next/link";
+import { AREA_LINKS } from "@/lib/areas";
 
 const serviceLinks = [
   {
     href: "/services/emergency-locksmith-arlington-va",
-    label: "Emergency lockout service in Arlington",
+    label: "Emergency locksmith Arlington VA",
   },
   {
     href: "/services/car-lockout-arlington",
-    label: "Car lockout service in Crystal City",
+    label: "Car lockout Arlington",
   },
   {
     href: "/services/commercial-storefront-lockout",
-    label: "Commercial locksmith in Ballston",
+    label: "Commercial locksmith Arlington",
   },
   {
     href: "/services/key-extraction-lock-repair",
-    label: "Key extraction service in Arlington",
+    label: "Key extraction lock repair Arlington",
   },
   {
     href: "/services/door-hardware-replacement",
-    label: "Door hardware replacement in Arlington",
+    label: "Door hardware replacement Arlington",
   },
   {
     href: "/services/emergency-exit-doors",
-    label: "Emergency exit door repair in Arlington",
+    label: "Emergency exit door repair Arlington",
   },
   {
     href: "/services/lock-rekeying-arlington-va",
-    label: "Lock rekeying service in Arlington",
+    label: "Lock rekeying Arlington",
   },
   {
     href: "/services/panic-bar-repair-arlington-va",
-    label: "Panic bar repair in Arlington",
+    label: "Panic bar repair Arlington",
   },
-];
-
-const areaLinks = [
-  { href: "#area-ballston", label: "Ballston" },
-  { href: "#area-clarendon", label: "Clarendon" },
-  { href: "#area-courthouse", label: "Courthouse" },
-  { href: "#area-crystal-city", label: "Crystal City" },
-  { href: "#area-pentagon-city", label: "Pentagon City" },
-  { href: "#area-rosslyn", label: "Rosslyn" },
-  { href: "#area-shirlington", label: "Shirlington" },
-  { href: "#area-columbia-pike", label: "Columbia Pike" },
-  { href: "#area-cherrydale", label: "Cherrydale" },
-  { href: "#area-lyon-village", label: "Lyon Village" },
-  { href: "#area-bluemont", label: "Bluemont" },
-  { href: "#area-westover", label: "Westover" },
-  { href: "#area-arlington-ridge", label: "Arlington Ridge" },
-  { href: "#area-penrose", label: "Penrose" },
-  { href: "#area-douglas-park", label: "Douglas Park" },
-  { href: "#area-fairlington", label: "Fairlington" },
-  { href: "#area-aurora-highlands", label: "Aurora Highlands" },
 ];
 
 export default function QuickLinks() {
@@ -76,16 +57,16 @@ export default function QuickLinks() {
           </div>
 
           <div>
-            <h2 className="text-xl font-extrabold text-gray-900 mb-3">Service Areas Navigation</h2>
+            <h2 className="text-xl font-extrabold text-gray-900 mb-3">Arlington Area Pages</h2>
             <div className="flex flex-wrap gap-2">
-              {areaLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
+              {AREA_LINKS.map((link) => (
+                <Link
+                  key={link.slug}
+                  href={`/areas/${link.slug}`}
                   className="bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-2 rounded-lg hover:bg-amber-100 hover:text-red-700 transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

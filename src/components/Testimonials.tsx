@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import CallLink from "@/components/CallLink";
 import {
   BUSINESS_PHONE_DISPLAY,
-  BUSINESS_PHONE_RAW,
   FAQ_ITEMS,
-  PHONE_ARIA_LABEL,
 } from "@/lib/seo";
 
 export default function Testimonials() {
@@ -20,14 +19,12 @@ export default function Testimonials() {
             Emergency Locksmith Arlington VA FAQs
           </h2>
           <p className="text-gray-600 max-w-xl mx-auto text-lg">
-            For emergencies, calling is the fastest option. Reach dispatch at {" "}
-            <a
-              href={`tel:${BUSINESS_PHONE_RAW}`}
-              aria-label={PHONE_ARIA_LABEL}
+            For emergencies, calling is the fastest option. Reach dispatch at{" "}
+            <CallLink
+              label={BUSINESS_PHONE_DISPLAY}
+              location="homepage-faq-header"
               className="text-red-600 font-semibold hover:text-red-800"
-            >
-              {BUSINESS_PHONE_DISPLAY}
-            </a>
+            />
             .
           </p>
         </div>

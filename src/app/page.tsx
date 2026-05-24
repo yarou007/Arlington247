@@ -10,9 +10,9 @@ import SeoContentSections from "@/components/SeoContentSections";
 import Testimonials from "@/components/Testimonials";
 import CustomerReviews from "@/components/CustomerReviews";
 import GoogleMap from "@/components/GoogleMap";
-import ContactForm from "@/components/ContactForm";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
+import RelatedServices from "@/components/RelatedServices";
 
 export default function ArlingtonLocksmithPage() {
   return (
@@ -26,14 +26,12 @@ export default function ArlingtonLocksmithPage() {
       <HowItWorks />
       <ServiceArea />
       <SeoContentSections />
+      <RelatedServices />
       <Testimonials />
       <CustomerReviews />
       <GoogleMap />
-      <ContactForm />
       <CallToAction />
       <Footer />
-      {/* Bottom padding for mobile sticky call button (accounts for iPhone safe area) */}
-      <div className="h-20 md:hidden" />
     </main>
   );
 }

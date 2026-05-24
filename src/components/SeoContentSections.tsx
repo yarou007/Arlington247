@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_RAW, PHONE_ARIA_LABEL } from "@/lib/seo";
+import CallLink from "@/components/CallLink";
+import { BUSINESS_PHONE_DISPLAY } from "@/lib/seo";
 
 type ServiceSpotlight = {
   id: string;
@@ -121,7 +122,10 @@ const serviceSpotlights: ServiceSpotlight[] = [
       "Our panic bar repair Arlington service restores operation, checks latching behavior, and supports emergency exit readiness.",
     related: [
       { href: "/services/emergency-exit-doors", label: "Emergency exit door repair page" },
-      { href: "/services/emergency-exit-doors", label: "Emergency exit door repair page" },
+      {
+        href: "/services/storefront-lock-repair-arlington-va",
+        label: "Storefront lock repair Arlington page",
+      },
     ],
   },
   {
@@ -239,13 +243,11 @@ export default function SeoContentSections() {
                 ))}
               </div>
 
-              <a
-                href={`tel:${BUSINESS_PHONE_RAW}`}
-                aria-label={PHONE_ARIA_LABEL}
+              <CallLink
+                label={`Call Now — ${BUSINESS_PHONE_DISPLAY}`}
+                location={`homepage-seo-spotlight-${service.id}`}
                 className="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2.5 rounded-lg text-sm transition-colors"
-              >
-                Call Now — {BUSINESS_PHONE_DISPLAY}
-              </a>
+              />
             </article>
           ))}
         </div>
@@ -255,13 +257,13 @@ export default function SeoContentSections() {
             <article key={block.title} className="rounded-2xl bg-gray-900 text-white p-6">
               <h3 className="text-xl font-extrabold mb-2">{block.title}</h3>
               <p className="text-gray-300 mb-4">{block.description}</p>
-              <a
-                href={`tel:${BUSINESS_PHONE_RAW}`}
-                aria-label={PHONE_ARIA_LABEL}
+              <CallLink
+                label="Call for Fast Help"
+                location={`homepage-seo-cta-${block.title
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, "-")}`}
                 className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold px-4 py-2 rounded-lg transition-colors"
-              >
-                Call for Fast Help
-              </a>
+              />
             </article>
           ))}
         </div>

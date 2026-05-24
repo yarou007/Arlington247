@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_RAW, PHONE_ARIA_LABEL } from "@/lib/seo";
+import CallLink from "@/components/CallLink";
+import { BUSINESS_PHONE_DISPLAY } from "@/lib/seo";
 
 const services = [
   {
@@ -56,7 +57,7 @@ const services = [
     description:
       "Locked keys in your car? We unlock most makes and models across Arlington County without forcing entry.",
     related: [
-      { href: "#service-key-extraction", label: "Key extraction Arlington" },
+      { href: "/services/key-extraction-lock-repair", label: "Key extraction Arlington" },
       {
         href: "/services/broken-key-removal-arlington-va",
         label: "Broken key removal Arlington",
@@ -155,13 +156,11 @@ export default function Services() {
                   >
                     View service details
                   </Link>
-                  <a
-                    href={`tel:${BUSINESS_PHONE_RAW}`}
-                    aria-label={PHONE_ARIA_LABEL}
+                  <CallLink
+                    label={`Call for Fast Help — ${BUSINESS_PHONE_DISPLAY}`}
+                    location={`homepage-services-${service.href}`}
                     className="block text-center bg-gray-900 hover:bg-red-600 text-white text-sm font-bold py-2.5 rounded-lg transition-colors duration-200"
-                  >
-                    Call for Fast Help — {BUSINESS_PHONE_DISPLAY}
-                  </a>
+                  />
                 </div>
               </div>
             </article>

@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { BUSINESS_NAME, BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_RAW } from "@/lib/seo";
+import CallLink from "@/components/CallLink";
+import SocialLinks from "@/components/SocialLinks";
+import { AREA_LINKS } from "@/lib/areas";
+import { BUSINESS_NAME, BUSINESS_PHONE_DISPLAY } from "@/lib/seo";
 
 const serviceLinks = [
   {
@@ -10,10 +13,10 @@ const serviceLinks = [
     href: "/services/residential-locksmith-arlington",
     label: "Residential locksmith Arlington",
   },
-  { href: "/services/car-lockout-arlington", label: "Car lockout service in Crystal City" },
+  { href: "/services/car-lockout-arlington", label: "Car lockout Arlington" },
   {
     href: "/services/commercial-storefront-lockout",
-    label: "Commercial locksmith in Ballston",
+    label: "Commercial locksmith Arlington",
   },
   { href: "/services/key-extraction-lock-repair", label: "Key extraction Arlington" },
   {
@@ -23,19 +26,6 @@ const serviceLinks = [
   { href: "/services/emergency-exit-doors", label: "Emergency exit door repair Arlington" },
   { href: "/services/lock-rekeying-arlington-va", label: "Lock rekeying Arlington" },
   { href: "/services/deadbolt-replacement-arlington-va", label: "Deadbolt replacement Arlington" },
-];
-
-const areaLinks = [
-  { href: "/#area-ballston", label: "Ballston" },
-  { href: "/#area-clarendon", label: "Clarendon" },
-  { href: "/#area-courthouse", label: "Courthouse" },
-  { href: "/#area-crystal-city", label: "Crystal City" },
-  { href: "/#area-pentagon-city", label: "Pentagon City" },
-  { href: "/#area-rosslyn", label: "Rosslyn" },
-  { href: "/#area-shirlington", label: "Shirlington" },
-  { href: "/#area-columbia-pike", label: "Columbia Pike" },
-  { href: "/#area-fairlington", label: "Fairlington" },
-  { href: "/#area-aurora-highlands", label: "Aurora Highlands" },
 ];
 
 export default function Footer() {
@@ -52,24 +42,22 @@ export default function Footer() {
               </span>
               <span className="text-white font-bold text-xl">arlington247lockrepair</span>
             </div>
-            <p className="text-sm leading-relaxed mb-4" itemProp="description">
+            <p className="text-sm leading-relaxed mb-3" itemProp="description">
               24/7 emergency locksmith Arlington VA service for lockouts, key extraction, lock
-              repair, and door hardware problems.
+              repair, and emergency door hardware issues.
             </p>
-            <a
-              href={`tel:${BUSINESS_PHONE_RAW}`}
-              aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
+            <p className="text-sm text-amber-200 mb-4">Trusted by Arlington residents and businesses.</p>
+            <CallLink
+              label={`Call ${BUSINESS_PHONE_DISPLAY}`}
+              location="footer-primary"
               className="inline-flex items-center bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold px-4 py-2 rounded-lg transition-colors"
-              itemProp="telephone"
-            >
-              Call {BUSINESS_PHONE_DISPLAY}
-            </a>
+            />
             <meta itemProp="name" content={BUSINESS_NAME} />
             <meta itemProp="openingHours" content="Mo-Su 00:00-23:59" />
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <h2 className="text-white font-semibold mb-4">Services</h2>
             <ul className="space-y-2 text-sm">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
@@ -82,11 +70,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Service Areas</h4>
+            <h2 className="text-white font-semibold mb-4">Arlington Areas</h2>
             <ul className="space-y-2 text-sm">
-              {areaLinks.map((link) => (
-                <li key={link.label}>
-                  <Link href={link.href} className="hover:text-amber-400 transition-colors">
+              {AREA_LINKS.map((link) => (
+                <li key={link.slug}>
+                  <Link
+                    href={`/areas/${link.slug}`}
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -95,8 +86,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <h2 className="text-white font-semibold mb-4">Quick Links</h2>
+            <ul className="space-y-2 text-sm mb-6">
               <li>
                 <Link href="/" className="hover:text-amber-400 transition-colors">
                   Home
@@ -128,6 +119,9 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+
+            <h3 className="text-white font-semibold mb-3">Social (Coming Soon)</h3>
+            <SocialLinks className="flex flex-wrap gap-2" />
           </div>
         </div>
 

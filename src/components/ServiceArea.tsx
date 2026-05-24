@@ -1,96 +1,58 @@
 import Link from "next/link";
-import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_RAW, PHONE_ARIA_LABEL } from "@/lib/seo";
+import CallLink from "@/components/CallLink";
+import { AREA_LINKS } from "@/lib/areas";
+import { BUSINESS_PHONE_DISPLAY } from "@/lib/seo";
 
-const areas = [
+const areaHighlights = [
   {
-    id: "area-arlington-va",
-    name: "Arlington VA",
-    text: "Need a locksmith near me Arlington search result you can call right now? We dispatch across Arlington VA 24/7 for lockouts and urgent lock repairs.",
+    slug: "ballston-locksmith",
+    name: "Ballston locksmith",
+    text: "Locked out near Ballston Quarter or a nearby apartment tower? We dispatch mobile locksmith help 24/7.",
   },
   {
-    id: "area-ballston",
-    name: "Ballston",
-    text: "Locked out near Ballston Quarter or Wilson Boulevard? Call our Arlington locksmith team for fast mobile help.",
+    slug: "clarendon-locksmith",
+    name: "Clarendon locksmith",
+    text: "From late-night lockouts to urgent apartment access in Clarendon, call for fast local dispatch.",
   },
   {
-    id: "area-clarendon",
-    name: "Clarendon",
-    text: "From Clarendon nightlife lockouts to apartment entry issues, we provide fast after-hours locksmith dispatch.",
+    slug: "rosslyn-locksmith",
+    name: "Rosslyn locksmith",
+    text: "Rosslyn office towers and condos rely on quick emergency locksmith response for secure re-entry.",
   },
   {
-    id: "area-courthouse",
-    name: "Courthouse",
-    text: "If you are locked out near Courthouse offices and apartments, we route a technician for immediate access support.",
+    slug: "crystal-city-locksmith",
+    name: "Crystal City locksmith",
+    text: "Need lockout support in Crystal City garages or residential buildings? We provide 24/7 phone-first help.",
   },
   {
-    id: "area-crystal-city",
-    name: "Crystal City",
-    text: "Car lockout Arlington calls in Crystal City parking decks and streets are handled with mobile response and safe entry methods.",
+    slug: "pentagon-city-locksmith",
+    name: "Pentagon City locksmith",
+    text: "Pentagon City storefronts, residents, and drivers call us for urgent lock repair and lockout service.",
   },
   {
-    id: "area-pentagon-city",
-    name: "Pentagon City",
-    text: "Business and residential lockouts in Pentagon City get priority dispatch for quick re-entry and lock stabilization.",
+    slug: "courthouse-locksmith",
+    name: "Courthouse locksmith",
+    text: "Courthouse lockouts and office access issues are prioritized for fast response across Arlington.",
   },
   {
-    id: "area-rosslyn",
-    name: "Rosslyn",
-    text: "Need emergency locksmith Arlington VA help in Rosslyn towers or condos? We provide 24/7 call-first support.",
+    slug: "shirlington-locksmith",
+    name: "Shirlington locksmith",
+    text: "Shirlington businesses and residents call us for emergency lockouts, key extraction, and hardware repair.",
   },
   {
-    id: "area-shirlington",
-    name: "Shirlington",
-    text: "From Shirlington storefronts to residential complexes, we handle lockouts, key extraction, and lock repairs.",
+    slug: "columbia-pike-locksmith",
+    name: "Columbia Pike locksmith",
+    text: "Columbia Pike lockouts often need same-day response. We dispatch mobile locksmith support day and night.",
   },
   {
-    id: "area-columbia-pike",
-    name: "Columbia Pike",
-    text: "Columbia Pike residents and business owners call us for fast local lockout service and urgent door hardware issues.",
+    slug: "westover-locksmith",
+    name: "Westover locksmith",
+    text: "Westover home and business calls include deadbolt issues, key breakage, and emergency re-entry.",
   },
   {
-    id: "area-cherrydale",
-    name: "Cherrydale",
-    text: "Cherrydale home lockouts and rekey requests are covered by our mobile locksmith units day and night.",
-  },
-  {
-    id: "area-lyon-village",
-    name: "Lyon Village",
-    text: "Lyon Village homeowners call for residential locksmith Arlington support when deadbolts jam or keys break.",
-  },
-  {
-    id: "area-bluemont",
-    name: "Bluemont",
-    text: "Bluemont service includes emergency lockouts, broken key removal, and practical lock repair options.",
-  },
-  {
-    id: "area-westover",
-    name: "Westover",
-    text: "Need fast help in Westover? Our dispatch team routes local technicians for emergency entry and lock service.",
-  },
-  {
-    id: "area-arlington-ridge",
-    name: "Arlington Ridge",
-    text: "Arlington Ridge calls often involve home lockouts and lock upgrades; we provide call-first response with upfront pricing.",
-  },
-  {
-    id: "area-penrose",
-    name: "Penrose",
-    text: "Penrose residents and small businesses use our 24 hour locksmith Arlington coverage for urgent access problems.",
-  },
-  {
-    id: "area-douglas-park",
-    name: "Douglas Park",
-    text: "Douglas Park lockouts, damaged lock cylinders, and key extraction issues are handled by mobile locksmith dispatch.",
-  },
-  {
-    id: "area-fairlington",
-    name: "Fairlington",
-    text: "Fairlington townhome and condo communities call for lock rekeying, lockouts, and deadbolt replacement support.",
-  },
-  {
-    id: "area-aurora-highlands",
-    name: "Aurora Highlands",
-    text: "Aurora Highlands commercial and residential clients call us for emergency locksmith help and secure re-entry.",
+    slug: "arlington-ridge-locksmith",
+    name: "Arlington Ridge locksmith",
+    text: "Arlington Ridge calls include residential lockouts, car lockouts, and emergency door hardware service.",
   },
 ];
 
@@ -103,35 +65,39 @@ export default function ServiceArea() {
             Coverage
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
-            Emergency Locksmith Service Across Arlington County
+            Arlington Neighborhood Locksmith Coverage Pages
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            We provide 24/7 emergency locksmith Arlington VA coverage with mobile dispatch to
-            local neighborhoods and business districts.
+            Explore neighborhood pages below for local service details and call dispatch options in
+            Arlington VA.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {areas.map((area) => (
+          {areaHighlights.map((area) => (
             <article
-              id={area.id}
-              key={area.id}
+              id={`area-${area.slug}`}
+              key={area.slug}
               className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm"
             >
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{area.name}</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <Link href={`/areas/${area.slug}`} className="hover:text-red-700 transition-colors">
+                  {area.name}
+                </Link>
+              </h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-3">{area.text}</p>
               <div className="flex flex-wrap gap-2 text-xs">
                 <Link
-                  href="/services/emergency-locksmith-arlington-va"
+                  href={`/areas/${area.slug}`}
                   className="text-red-700 bg-red-50 border border-red-200 px-2 py-1 rounded hover:bg-red-100"
                 >
-                  Emergency lockout service in Arlington
+                  Visit {area.name} page
                 </Link>
                 <Link
-                  href="/services/car-lockout-arlington"
+                  href="/services/emergency-locksmith-arlington-va"
                   className="text-amber-900 bg-amber-50 border border-amber-200 px-2 py-1 rounded hover:bg-amber-100"
                 >
-                  Car lockout service in {area.name}
+                  Emergency locksmith Arlington VA
                 </Link>
               </div>
             </article>
@@ -141,18 +107,24 @@ export default function ServiceArea() {
         <div className="text-center mt-10">
           <p className="text-gray-600 mb-4 text-sm">
             Need fast help in Arlington?
-            <span className="font-semibold"> Tap to call now.</span>
+            <span className="font-semibold"> Call now for immediate dispatch.</span>
           </p>
-          <a
-            href={`tel:${BUSINESS_PHONE_RAW}`}
-            aria-label={PHONE_ARIA_LABEL}
+          <CallLink
+            label={`Call ${BUSINESS_PHONE_DISPLAY}`}
+            location="homepage-service-area"
             className="inline-flex items-center gap-2 bg-gray-900 hover:bg-red-600 text-white font-bold px-8 py-3.5 rounded-xl transition-colors duration-200"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-            </svg>
-            Call {BUSINESS_PHONE_DISPLAY}
-          </a>
+          />
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
+            {AREA_LINKS.map((area) => (
+              <Link
+                key={area.slug}
+                href={`/areas/${area.slug}`}
+                className="text-xs bg-white border border-gray-300 px-2.5 py-1 rounded hover:border-red-300 hover:text-red-700"
+              >
+                {area.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
