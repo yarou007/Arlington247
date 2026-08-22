@@ -10,7 +10,7 @@ import "./globals.css";
 
 const homeTitle = "Emergency Locksmith Arlington VA | 24/7 Lockout Help";
 const homeDescription =
-  "Locked out in Arlington VA? Call (703) 244-0559 for 24/7 emergency locksmith help, lockout service, key extraction and lock repair.";
+  "Locked out in Arlington VA? Call (703) 244-0559 now for 24/7 emergency locksmith service near you — lockouts, key extraction and lock repair in Ballston, Clarendon, Rosslyn, Crystal City, Pentagon City & all Arlington ZIP codes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

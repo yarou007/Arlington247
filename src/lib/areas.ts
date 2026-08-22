@@ -54,6 +54,31 @@ export const AREA_LINKS = [
   { slug: "arlington-ridge-locksmith", label: "Arlington Ridge locksmith" },
 ];
 
+export const ARLINGTON_ZIP_CODES = [
+  "22201",
+  "22202",
+  "22203",
+  "22204",
+  "22205",
+  "22206",
+  "22207",
+  "22209",
+  "22213",
+];
+
+export const AREA_ZIP_CODES: Record<string, string> = {
+  "ballston-locksmith": "22203",
+  "clarendon-locksmith": "22201",
+  "rosslyn-locksmith": "22209",
+  "crystal-city-locksmith": "22202",
+  "pentagon-city-locksmith": "22202",
+  "courthouse-locksmith": "22201",
+  "shirlington-locksmith": "22206",
+  "columbia-pike-locksmith": "22204",
+  "westover-locksmith": "22205",
+  "arlington-ridge-locksmith": "22206",
+};
+
 export const AREA_PAGES: AreaPageData[] = [
   {
     slug: "ballston-locksmith",

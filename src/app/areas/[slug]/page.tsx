@@ -5,7 +5,13 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import CallLink from "@/components/CallLink";
 import RelatedServices from "@/components/RelatedServices";
-import { AREA_LINKS, AREA_PAGE_MAP, AREA_PAGES } from "@/lib/areas";
+import {
+  ARLINGTON_ZIP_CODES,
+  AREA_LINKS,
+  AREA_PAGE_MAP,
+  AREA_PAGES,
+  AREA_ZIP_CODES,
+} from "@/lib/areas";
 import {
   BASE_URL,
   BUSINESS_NAME,
@@ -103,6 +109,7 @@ export default function AreaPage({ params }: AreaPageProps) {
   }
 
   const pageUrl = `${BASE_URL}/areas/${area.slug}`;
+  const areaZip = AREA_ZIP_CODES[area.slug];
 
   const areaLocalBusinessSchema = {
     "@context": "https://schema.org",
@@ -111,10 +118,26 @@ export default function AreaPage({ params }: AreaPageProps) {
     name: BUSINESS_NAME,
     url: pageUrl,
     telephone: BUSINESS_PHONE_RAW,
-    areaServed: {
-      "@type": "Place",
-      name: `${area.areaName}, Arlington VA`,
-    },
+    areaServed: [
+      {
+        "@type": "Place",
+        name: `${area.areaName}, Arlington VA`,
+      },
+      ...(areaZip
+        ? [
+            {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                postalCode: areaZip,
+                addressLocality: "Arlington",
+                addressRegion: "VA",
+                addressCountry: "US",
+              },
+            },
+          ]
+        : []),
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -225,6 +248,7 @@ export default function AreaPage({ params }: AreaPageProps) {
 
           <p className="text-gray-400 text-sm">
             Landmarks we frequently support: {area.landmarks.join(", ")}.
+            {areaZip ? ` Serving ${area.areaName} ZIP code ${areaZip} and nearby Arlington ZIPs.` : ""}
           </p>
         </div>
       </section>
@@ -343,8 +367,10 @@ export default function AreaPage({ params }: AreaPageProps) {
             Nearby Arlington Neighborhood Links
           </h2>
           <p className="text-gray-700 leading-relaxed mb-6">
-            Looking for a nearby Arlington neighborhood page? Use the links below to compare local
-            locksmith coverage and call options across nearby areas.
+            Searching for a locksmith near me in {area.areaName}? You are in our primary service
+            zone. Use the links below to compare local locksmith coverage and call options across
+            nearby Arlington neighborhoods.
+            {areaZip ? ` We serve ${area.areaName} ZIP code ${areaZip} and all surrounding Arlington ZIP codes.` : ""}
           </p>
           <div className="flex flex-wrap gap-2 mb-8">
             {AREA_LINKS.map((areaLink) => (

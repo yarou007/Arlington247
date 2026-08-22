@@ -1,6 +1,6 @@
 import Link from "next/link";
 import CallLink from "@/components/CallLink";
-import { AREA_LINKS } from "@/lib/areas";
+import { AREA_LINKS, ARLINGTON_ZIP_CODES } from "@/lib/areas";
 import { BUSINESS_PHONE_DISPLAY } from "@/lib/seo";
 
 const areaHighlights = [
@@ -68,8 +68,12 @@ export default function ServiceArea() {
             Arlington Neighborhood Locksmith Coverage Pages
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            Explore neighborhood pages below for local service details and call dispatch options in
-            Arlington VA.
+            Looking for a locksmith near me in Arlington VA? We dispatch mobile locksmiths to
+            every Arlington neighborhood below — call for local service details and immediate
+            phone-first dispatch.
+          </p>
+          <p className="text-gray-500 max-w-3xl mx-auto mt-3 text-sm">
+            Serving all of Arlington County: ZIP codes {ARLINGTON_ZIP_CODES.join(", ")}
           </p>
         </div>
 

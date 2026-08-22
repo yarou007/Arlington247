@@ -1,4 +1,8 @@
-import { AREA_LINKS, ARLINGTON_NEIGHBORHOODS } from "@/lib/areas";
+import {
+  ARLINGTON_NEIGHBORHOODS,
+  ARLINGTON_ZIP_CODES,
+  AREA_LINKS,
+} from "@/lib/areas";
 
 export const BASE_URL = "https://arlington247lockrepair.com";
 
@@ -94,10 +98,22 @@ export const LOCAL_BUSINESS_SCHEMA = {
       closes: "23:59",
     },
   ],
-  areaServed: SERVICE_AREAS.map((name) => ({
-    "@type": "Place",
-    name,
-  })),
+  areaServed: [
+    ...ARLINGTON_NEIGHBORHOODS.map((name) => ({
+      "@type": "Place",
+      name,
+    })),
+    ...ARLINGTON_ZIP_CODES.map((zip) => ({
+      "@type": "Place" as const,
+      address: {
+        "@type": "PostalAddress" as const,
+        postalCode: zip,
+        addressLocality: "Arlington",
+        addressRegion: "VA",
+        addressCountry: "US",
+      },
+    })),
+  ],
   serviceType: CORE_SERVICES,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -153,7 +169,12 @@ export const FAQ_ITEMS = [
   {
     question: "What areas in Arlington do you cover?",
     answer:
-      `We cover neighborhoods across Arlington, including ${AREA_LINKS.map((item) => item.label.replace(" locksmith", "")).join(", ")}, and nearby service zones.`,
+      `We cover all Arlington neighborhoods and ZIP codes, including ${AREA_LINKS.map((item) => item.label.replace(" locksmith", "")).join(", ")} — ZIP codes ${ARLINGTON_ZIP_CODES.join(", ")}.`,
+  },
+  {
+    question: "Is there a locksmith near me in Arlington open right now?",
+    answer:
+      `Yes. We dispatch mobile locksmiths 24/7 across Arlington County, including Ballston, Clarendon, Rosslyn, Crystal City, Pentagon City, Courthouse, Shirlington, Columbia Pike, Westover, and Arlington Ridge. Call ${BUSINESS_PHONE_DISPLAY} for the nearest available technician.`,
   },
 ];
 
