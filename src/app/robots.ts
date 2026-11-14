@@ -1,14 +1,15 @@
 import type { MetadataRoute } from "next";
+import { DOMAIN } from "@/lib/business";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    host: "https://arlington247lockrepair.com",
+    host: DOMAIN,
     rules: [
       {
         userAgent: "*",
         allow: "/",
       },
     ],
-    sitemap: "https://arlington247lockrepair.com/sitemap.xml",
+    sitemap: `${DOMAIN}/sitemap.xml`,
   };
 }

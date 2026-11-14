@@ -1,25 +1,28 @@
-import { BUSINESS_PHONE_RAW, PHONE_ARIA_LABEL } from "@/lib/seo";
-
-type CallLinkProps = {
-  label: string;
+import { BUSINESS_NAME, CALL_HREF } from "@/lib/business";
+import Icon from "@/components/Icon";
+export default function CallLink({
+  label = "Call Now",
+  location = "inline",
+  className = "button button-call",
+  ariaLabel,
+  icon = false,
+}: {
+  label?: string;
   location?: string;
   className?: string;
   ariaLabel?: string;
-};
-
-export default function CallLink({
-  label,
-  location = "unknown",
-  className,
-  ariaLabel = PHONE_ARIA_LABEL,
-}: CallLinkProps) {
+  icon?: boolean;
+}) {
   return (
     <a
-      href={`tel:${BUSINESS_PHONE_RAW}`}
-      aria-label={ariaLabel}
+      href={CALL_HREF}
+      aria-label={ariaLabel || `${label} — ${BUSINESS_NAME}`}
+      data-contact-channel="call"
+      data-contact-location={location}
       data-call-location={location}
       className={className}
     >
+      {icon && <Icon name="phone" size={20} />}
       {label}
     </a>
   );

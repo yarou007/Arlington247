@@ -1,192 +1,88 @@
 import {
-  ARLINGTON_NEIGHBORHOODS,
-  ARLINGTON_ZIP_CODES,
-  AREA_LINKS,
-} from "@/lib/areas";
-
-export const BASE_URL = "https://arlington247lockrepair.com";
-
-export const BUSINESS_NAME = "Arlington 24/7 Lock Repair";
-export const BUSINESS_PHONE_RAW = "+17032440559";
-export const BUSINESS_PHONE_DISPLAY = "(703) 244-0559";
-
-export const SERVICE_AREAS = ARLINGTON_NEIGHBORHOODS;
-
-export const CORE_SERVICES = [
-  "Emergency locksmith",
-  "24/7 emergency lockout service",
-  "Residential locksmith",
-  "Commercial locksmith",
-  "Car lockout service",
-  "Broken key extraction",
-  "Storefront lock repair",
-  "Panic bar repair",
-  "Door hardware replacement",
-  "Lock rekeying",
-  "Deadbolt replacement",
-  "Emergency exit door repair",
-];
-
-export const PHONE_ARIA_LABEL =
-  "Call Arlington 24/7 Lock Repair at 703-244-0559";
-
-export const SERVICE_CATALOG = [
-  {
-    name: "Emergency Locksmith Arlington VA",
-    path: "/services/emergency-locksmith-arlington-va",
-  },
-  { name: "Car Lockout Arlington", path: "/services/car-lockout-arlington" },
-  {
-    name: "Residential Locksmith Arlington",
-    path: "/services/residential-locksmith-arlington",
-  },
-  {
-    name: "Commercial Storefront Lockout Arlington",
-    path: "/services/commercial-storefront-lockout",
-  },
-  {
-    name: "Storefront Lock Repair Arlington VA",
-    path: "/services/storefront-lock-repair-arlington-va",
-  },
-  {
-    name: "Broken Key Removal Arlington VA",
-    path: "/services/broken-key-removal-arlington-va",
-  },
-  { name: "Lock Rekeying Arlington VA", path: "/services/lock-rekeying-arlington-va" },
-  {
-    name: "Deadbolt Replacement Arlington VA",
-    path: "/services/deadbolt-replacement-arlington-va",
-  },
-  {
-    name: "Panic Bar Repair Arlington VA",
-    path: "/services/panic-bar-repair-arlington-va",
-  },
-  { name: "Emergency Exit Doors", path: "/services/emergency-exit-doors" },
-  { name: "Door Hardware Replacement", path: "/services/door-hardware-replacement" },
-  {
-    name: "Key Extraction Lock Repair",
-    path: "/services/key-extraction-lock-repair",
-  },
-];
-
-export const SOCIAL_PROFILE_URLS: string[] = [
-  // Add sameAs social profile URLs when real profiles are available.
-];
-
+  BUSINESS_NAME,
+  CALL_NUMBER_DISPLAY,
+  CALL_NUMBER_TEL,
+  DOMAIN,
+  GOOGLE_BUSINESS_PROFILE_URL,
+  VERIFIED_OPENING_HOURS,
+} from "@/lib/business";
+import { AREA_LINKS, SERVICE_LINKS } from "@/lib/navigation";
+export {
+  BUSINESS_NAME,
+  CALL_NUMBER_DISPLAY as BUSINESS_PHONE_DISPLAY,
+  CALL_NUMBER_TEL as BUSINESS_PHONE_RAW,
+  DOMAIN as BASE_URL,
+  PHONE_ARIA_LABEL,
+} from "@/lib/business";
+export const BUSINESS_ID = `${DOMAIN}/#business`;
+export const SERVICE_CATALOG = SERVICE_LINKS.map((service) => ({
+  name: service.label,
+  path: `/services/${service.slug}`,
+}));
 export const LOCAL_BUSINESS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Locksmith",
-  "@id": `${BASE_URL}/#business`,
+  "@id": BUSINESS_ID,
   name: BUSINESS_NAME,
-  url: `${BASE_URL}/`,
-  telephone: BUSINESS_PHONE_RAW,
-  image: `${BASE_URL}/images/keys-in-lock.jpg`,
-  priceRange: "$$",
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
-    },
-  ],
+  url: DOMAIN,
+  telephone: CALL_NUMBER_TEL,
+  description:
+    "Mobile locksmith for home, car and business lockouts and lock repairs in Arlington County, Virginia. Service-area business with no walk-in office.",
   areaServed: [
-    ...ARLINGTON_NEIGHBORHOODS.map((name) => ({
+    { "@type": "AdministrativeArea", name: "Arlington County, Virginia" },
+    ...AREA_LINKS.map((area) => ({
       "@type": "Place",
-      name,
-    })),
-    ...ARLINGTON_ZIP_CODES.map((zip) => ({
-      "@type": "Place" as const,
-      address: {
-        "@type": "PostalAddress" as const,
-        postalCode: zip,
-        addressLocality: "Arlington",
-        addressRegion: "VA",
-        addressCountry: "US",
-      },
+      name: `${area.name}, Arlington, VA`,
     })),
   ],
-  serviceType: CORE_SERVICES,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Arlington Locksmith Services",
+    name: "Locksmith services in Arlington, VA",
     itemListElement: SERVICE_CATALOG.map((service) => ({
       "@type": "Offer",
       itemOffered: {
         "@type": "Service",
         name: service.name,
-        url: `${BASE_URL}${service.path}`,
+        url: `${DOMAIN}${service.path}`,
       },
     })),
   },
-  potentialAction: {
-    "@type": "CommunicateAction",
-    name: "Call for emergency locksmith dispatch",
-    target: `tel:${BUSINESS_PHONE_RAW}`,
-  },
-  ...(SOCIAL_PROFILE_URLS.length > 0 ? { sameAs: SOCIAL_PROFILE_URLS } : {}),
+  ...(VERIFIED_OPENING_HOURS.length
+    ? { openingHours: VERIFIED_OPENING_HOURS }
+    : {}),
+  ...(GOOGLE_BUSINESS_PROFILE_URL
+    ? { sameAs: [GOOGLE_BUSINESS_PROFILE_URL] }
+    : {}),
 };
-
-export const FAQ_ITEMS = [
+export type FaqItem = { question: string; answer: string };
+export const HOME_FAQ: FaqItem[] = [
   {
-    question: "How fast can a locksmith arrive in Arlington VA?",
-    answer:
-      "Arrival time depends on traffic and active calls, but emergency lockouts are prioritized for the fastest available dispatch across Arlington County.",
+    question: "How do I request lockout services in Arlington, VA?",
+    answer: `Call ${CALL_NUMBER_DISPLAY} for an active lockout, or send your neighborhood, a location pin and a photo on WhatsApp. Say whether the problem involves a home, vehicle or business so the request can be assessed.`,
   },
   {
-    question: "Do you provide 24/7 emergency locksmith service in Arlington?",
+    question: "What if I need a 24 hour locksmith in Arlington?",
     answer:
-      "Yes. We provide 24/7 emergency locksmith service in Arlington for residential, commercial, and automotive lockouts.",
+      "Call to check current availability, the service needed and an arrival estimate for your location. Timing depends on the job and conditions; a website visit does not confirm a booking or an arrival time.",
   },
   {
-    question: "Can you unlock my house, car or office without damage?",
+    question: "Can you help with car and commercial lockouts?",
     answer:
-      "When possible, we use non-destructive entry methods first. If repair or replacement is needed, we explain options and pricing before work starts.",
+      "Car lockouts, office and storefront lockouts, broken keys, storefront lock repair and panic bar repair are among the services offered. Share the vehicle model or door hardware details so the scope can be confirmed.",
   },
   {
-    question: "Do you handle broken key extraction in Arlington?",
+    question: "Will my lock need to be replaced?",
     answer:
-      "Yes. We handle broken key extraction for home locks, office doors, storefront hardware, and many vehicle lock situations.",
+      "A lockout alone does not establish that a lock needs replacement. Ask about an entry assessment and whether repair, extraction or rekeying would address the problem. Door condition and the type of lock affect the options.",
   },
   {
-    question: "Do you repair storefront locks and panic bars?",
+    question: "What affects the price of a locksmith visit?",
     answer:
-      "Yes. We provide storefront lock repair, panic bar repair, and emergency exit door hardware service for Arlington businesses.",
+      "The service location, time of day, lock type, vehicle model, access arrangements and replacement hardware can affect the quote. Ask what the proposed work includes and which changes would require your approval.",
   },
   {
-    question: "Should I call for emergency locksmith help instead of waiting?",
+    question: "Is there an office I can visit?",
     answer:
-      `Yes. For urgent lockouts, calling ${BUSINESS_PHONE_DISPLAY} is the fastest way to request dispatch and restore access quickly.`,
-  },
-  {
-    question: "What areas in Arlington do you cover?",
-    answer:
-      `We cover all Arlington neighborhoods and ZIP codes, including ${AREA_LINKS.map((item) => item.label.replace(" locksmith", "")).join(", ")} — ZIP codes ${ARLINGTON_ZIP_CODES.join(", ")}.`,
-  },
-  {
-    question: "Is there a locksmith near me in Arlington open right now?",
-    answer:
-      `Yes. We dispatch mobile locksmiths 24/7 across Arlington County, including Ballston, Clarendon, Rosslyn, Crystal City, Pentagon City, Courthouse, Shirlington, Columbia Pike, Westover, and Arlington Ridge. Call ${BUSINESS_PHONE_DISPLAY} for the nearest available technician.`,
+      "This is a mobile, service-area business serving Arlington County, Virginia, with no walk-in office. Arrange service at the location of the door, lock or vehicle by phone or WhatsApp.",
   },
 ];
-
-export const FAQ_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};

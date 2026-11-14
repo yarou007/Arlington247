@@ -1,41 +1,27 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_RAW } from "@/lib/seo";
-
-export default function CopyPhoneButton({ className }: { className?: string }) {
-  const [copied, setCopied] = useState(false);
-
+import { CALL_NUMBER_DISPLAY } from "@/lib/business";
+export default function CopyPhoneButton() {
+  const [status, setStatus] = useState("Copy number");
   useEffect(() => {
-    if (!copied) {
-      return;
-    }
-
-    const timeout = window.setTimeout(() => {
-      setCopied(false);
-    }, 1800);
-
-    return () => window.clearTimeout(timeout);
-  }, [copied]);
-
-  async function handleCopy() {
-    try {
-      await navigator.clipboard.writeText(BUSINESS_PHONE_DISPLAY);
-      setCopied(true);
-    } catch {
-      await navigator.clipboard.writeText(BUSINESS_PHONE_RAW);
-      setCopied(true);
-    }
-  }
-
+    if (status === "Copy number") return;
+    const id = window.setTimeout(() => setStatus("Copy number"), 2200);
+    return () => window.clearTimeout(id);
+  }, [status]);
   return (
     <button
       type="button"
-      onClick={handleCopy}
-      className={className}
-      aria-label="Copy locksmith phone number"
+      className="copy-phone"
+      onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(CALL_NUMBER_DISPLAY);
+          setStatus("Copied");
+        } catch {
+          setStatus("Select phone number to copy");
+        }
+      }}
     >
-      {copied ? "Copied" : "Copy Number"}
+      <span aria-live="polite">{status}</span>
     </button>
   );
 }

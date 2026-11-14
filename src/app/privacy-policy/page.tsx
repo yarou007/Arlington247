@@ -1,62 +1,66 @@
-import type { Metadata } from "next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-
-const PAGE_URL = "https://arlington247lockrepair.com/privacy-policy";
-
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "Privacy policy for arlington247lockrepair. Learn what information we collect, how we use it, and how to contact us about your privacy rights.",
-  alternates: {
-    canonical: PAGE_URL,
-  },
-};
-
+import { CALL_NUMBER_DISPLAY } from "@/lib/business";
+import { pageMetadata } from "@/lib/metadata";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import ContactActions from "@/components/ContactActions";
+export const metadata = pageMetadata(
+  "/privacy-policy",
+  `Privacy Arlington, VA | ${CALL_NUMBER_DISPLAY}`,
+  `Contact and website analytics information for this Arlington, VA mobile locksmith site. Call ${CALL_NUMBER_DISPLAY} or WhatsApp with questions.`,
+);
 export default function PrivacyPolicyPage() {
   return (
-    <main>
-      <Header />
-      <section className="py-14 sm:py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
-            Privacy Policy
-          </h1>
-          <p className="text-gray-600 mb-6">Last updated: April 26, 2026</p>
-
-          <div className="space-y-6 text-gray-700 leading-relaxed">
+    <>
+      <Breadcrumbs items={[{ label: "Privacy", href: "/privacy-policy" }]} />
+      <section className="section">
+        <div className="wrap narrow article-content legal-content">
+          <p className="eyebrow">Website information</p>
+          <h1>Privacy information — Arlington, VA</h1>
+          <p>Updated November 14, 2026.</p>
+          <section>
+            <h2>Phone and WhatsApp contact</h2>
             <p>
-              We collect limited contact information you provide when you call us,
-              including your phone number, service address, and service request details.
-              This information is used only to provide locksmith services, support
-              dispatch, billing, and customer care.
+              This website uses phone and WhatsApp links for service requests.
+              It has no web contact form, newsletter or email contact route.
+              When you choose to call or send a message, provide the information
+              needed to describe your request, such as a service location and
+              lock or vehicle details.
             </p>
             <p>
-              We do not sell your personal information. We may share information with
-              trusted service providers only when required to operate our business,
-              process payments, or meet legal obligations.
+              WhatsApp opens a third-party service governed by its own terms and
+              privacy settings. The prefilled text is editable before you send
+              it. Avoid including access codes, identity documents or payment
+              information in an initial message.
+            </p>
+          </section>
+          <section>
+            <h2>Campaign attribution on this website</h2>
+            <p>
+              The site can keep supported campaign parameters, including UTM
+              values and Google advertising click identifiers, in your browser’s
+              session storage. These help associate a contact-link click with
+              the campaign that brought you here. Contact links continue to work
+              if that storage is unavailable.
+            </p>
+          </section>
+          <section>
+            <h2>Contact-click measurement</h2>
+            <p>
+              When analytics is configured, a phone or WhatsApp link click can
+              be measured with the page, button location and supported campaign
+              parameters. Google Analytics and Google Ads may receive this
+              website event data through their tags. A link click is not
+              evidence that a call connected or a WhatsApp message was sent.
             </p>
             <p>
-              We use reasonable administrative and technical safeguards to protect the
-              information we store. No method of transmission or storage is guaranteed to
-              be fully secure.
+              The site’s contact-click code does not collect the content of your
+              calls, WhatsApp conversations, photos or documents. Questions
+              about information supplied during a service request can be raised
+              directly by phone or WhatsApp.
             </p>
-            <p>
-              If you have questions about this policy or would like to request correction
-              or deletion of your information, call us at{" "}
-              <a
-                href="tel:+17032440559"
-                aria-label="Call Arlington 24/7 Lock Repair at 703-244-0559"
-                className="text-red-600 font-semibold hover:underline"
-              >
-                (703) 244-0559
-              </a>
-              .
-            </p>
-          </div>
+          </section>
+          <ContactActions path="/privacy-policy" location="privacy-contact" />
         </div>
       </section>
-      <Footer />
-    </main>
+    </>
   );
 }

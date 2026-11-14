@@ -1,168 +1,64 @@
-import Image from "next/image";
 import Link from "next/link";
-import CallLink from "@/components/CallLink";
-import { BUSINESS_PHONE_DISPLAY } from "@/lib/seo";
-
-const services = [
-  {
-    title: "Emergency Lockout Service Arlington VA",
-    href: "/services/emergency-locksmith-arlington-va",
-    image: "/images/night-lock.jpg",
-    alt: "Emergency lockout service in Arlington VA at night",
-    description:
-      "Locked out in Arlington? We dispatch a mobile locksmith for house, office, storefront, and lockout emergencies 24/7.",
-    related: [
-      { href: "/services/car-lockout-arlington", label: "Car lockout service in Arlington" },
-      {
-        href: "/services/residential-locksmith-arlington",
-        label: "Residential locksmith Arlington",
-      },
-    ],
-  },
-  {
-    title: "Residential Locksmith Arlington VA",
-    href: "/services/residential-locksmith-arlington",
-    image: "/images/door-knob.jpg",
-    alt: "Residential locksmith service in Arlington VA for house lockouts",
-    description:
-      "Home, apartment, and condo locksmith help with lockouts, rekeying, deadbolt replacement, and damaged lock repair.",
-    related: [
-      { href: "/services/lock-rekeying-arlington-va", label: "Lock rekeying Arlington" },
-      {
-        href: "/services/deadbolt-replacement-arlington-va",
-        label: "Deadbolt replacement Arlington",
-      },
-    ],
-  },
-  {
-    title: "Commercial Locksmith Arlington VA",
-    href: "/services/commercial-storefront-lockout",
-    image: "/images/office-latch.jpg",
-    alt: "Commercial locksmith Arlington VA storefront and office locks",
-    description:
-      "Fast response for office and storefront lockouts, panic bars, access doors, and business lock repairs.",
-    related: [
-      {
-        href: "/services/storefront-lock-repair-arlington-va",
-        label: "Storefront lock repair Arlington",
-      },
-      { href: "/services/panic-bar-repair-arlington-va", label: "Panic bar repair Arlington" },
-    ],
-  },
-  {
-    title: "Car Lockout Service Arlington VA",
-    href: "/services/car-lockout-arlington",
-    image: "/images/car-lock.jpg",
-    alt: "Car lockout Arlington VA emergency vehicle entry",
-    description:
-      "Locked keys in your car? We unlock most makes and models across Arlington County without forcing entry.",
-    related: [
-      { href: "/services/key-extraction-lock-repair", label: "Key extraction Arlington" },
-      {
-        href: "/services/broken-key-removal-arlington-va",
-        label: "Broken key removal Arlington",
-      },
-    ],
-  },
-  {
-    title: "Key Extraction Arlington VA",
-    href: "/services/key-extraction-lock-repair",
-    image: "/images/keys-in-lock.jpg",
-    alt: "Key extraction and broken key removal in Arlington VA",
-    description:
-      "Broken key in a lock or ignition? We remove the fragment, check the lock condition, and restore access quickly.",
-    related: [
-      {
-        href: "/services/door-hardware-replacement",
-        label: "Door hardware replacement Arlington",
-      },
-      {
-        href: "/services/broken-key-removal-arlington-va",
-        label: "Broken key removal service",
-      },
-    ],
-  },
-  {
-    title: "Emergency Exit Door Repair Arlington VA",
-    href: "/services/emergency-exit-doors",
-    image: "/images/push-bar.jpg",
-    alt: "Emergency exit door and panic bar repair in Arlington VA",
-    description:
-      "Commercial emergency exit door repair, panic hardware service, and urgent door hardware fixes for local businesses.",
-    related: [
-      {
-        href: "/services/door-hardware-replacement",
-        label: "Door hardware replacement Arlington",
-      },
-      { href: "/services/panic-bar-repair-arlington-va", label: "Panic bar repair Arlington" },
-    ],
-  },
-];
-
+import { SERVICE_LINKS } from "@/lib/navigation";
+import Icon from "@/components/Icon";
+import ContactActions from "@/components/ContactActions";
+const descriptions: Record<string, string> = {
+  "emergency-locksmith-arlington-va":
+    "Locked out of a house, apartment, office or shop? Start with an entry assessment.",
+  "car-lockout-arlington":
+    "Keys inside the vehicle or a door that won’t unlock? Share the make, model and location.",
+  "commercial-storefront-lockout":
+    "Help with office and shop access, with authorization and building access arranged.",
+  "storefront-lock-repair-arlington-va":
+    "A cylinder, latch or door alignment problem that keeps your storefront from securing.",
+  "panic-bar-repair-arlington-va":
+    "Sticking push bars and unreliable latching on commercial exit hardware.",
+  "emergency-exit-doors":
+    "Troubleshooting doors that won’t close, latch or release as intended.",
+  "residential-locksmith-arlington":
+    "Apartment and home lockouts, worn locks and changes to who has a working key.",
+  "lock-rekeying-arlington-va":
+    "Change which key operates a compatible existing lock after a move or lost key.",
+  "deadbolt-replacement-arlington-va":
+    "Discuss a suitable replacement for a damaged, worn or unreliable deadbolt.",
+  "broken-key-removal-arlington-va":
+    "A snapped key left in the cylinder? Stop turning it and request an assessment.",
+  "key-extraction-lock-repair":
+    "Check the lock after a stuck or broken key, then decide on repair or replacement.",
+  "door-hardware-replacement":
+    "Replacement options for worn handles, locksets, closers and other door hardware.",
+};
 export default function Services() {
   return (
-    <section className="py-16 sm:py-20 bg-gray-50" id="services">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="text-red-600 font-semibold uppercase tracking-widest text-sm mb-2">
-            Arlington Services
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
-            24/7 Emergency Locksmith Arlington VA Services
-          </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            Need fast help in Arlington? Tap to call now. A mobile locksmith can be dispatched
-            to your location for lockouts, key extraction, lock repair, and hardware issues.
+    <section className="section section-soft" id="services">
+      <div className="wrap">
+        <div className="section-intro">
+          <p className="eyebrow">Choose the problem</p>
+          <h2>Lockout services in Arlington, VA</h2>
+          <p>
+            Start with the issue you can see. Each service page explains what to
+            check, which details to send and what can affect the work. You do
+            not need to know the name of your lock before getting in touch.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <article
-              key={service.title}
-              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group flex flex-col"
-            >
-              <div className="relative h-44 sm:h-52 overflow-hidden flex-shrink-0">
-                <Image
-                  src={service.image}
-                  alt={service.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              </div>
-
-              <div className="p-5 flex-1 flex flex-col">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">{service.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {service.related.map((relatedLink) => (
-                    <Link
-                      key={relatedLink.label}
-                      href={relatedLink.href}
-                      className="text-xs bg-amber-50 text-amber-900 border border-amber-200 px-2.5 py-1 rounded-md hover:bg-amber-100 transition-colors"
-                    >
-                      {relatedLink.label}
-                    </Link>
-                  ))}
-                </div>
-
-                <div className="grid grid-cols-1 gap-2 mt-auto">
-                  <Link
-                    href={service.href}
-                    className="block text-center border border-gray-300 hover:border-red-500 text-gray-800 hover:text-red-600 text-sm font-bold py-2.5 rounded-lg transition-colors duration-200"
-                  >
-                    View service details
-                  </Link>
-                  <CallLink
-                    label={`Call for Fast Help — ${BUSINESS_PHONE_DISPLAY}`}
-                    location={`homepage-services-${service.href}`}
-                    className="block text-center bg-gray-900 hover:bg-red-600 text-white text-sm font-bold py-2.5 rounded-lg transition-colors duration-200"
-                  />
-                </div>
-              </div>
+        <div className="service-grid">
+          {SERVICE_LINKS.map((service) => (
+            <article key={service.slug} className="service-card">
+              <span className="card-icon">
+                <Icon name={service.icon} />
+              </span>
+              <h3>
+                <Link href={`/services/${service.slug}`}>{service.label}</Link>
+              </h3>
+              <p>{descriptions[service.slug]}</p>
+              <Link href={`/services/${service.slug}`} className="text-link">
+                Service details <Icon name="arrow" size={18} />
+              </Link>
+              <ContactActions
+                path={`/services/${service.slug}`}
+                location={`home-service-${service.slug}`}
+                compact
+              />
             </article>
           ))}
         </div>

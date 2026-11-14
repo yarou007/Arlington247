@@ -1,59 +1,7 @@
-export type AreaFaqItem = {
-  question: string;
-  answer: string;
-};
-
-export type AreaPageData = {
-  slug: string;
-  areaName: string;
-  title: string;
-  description: string;
-  h1: string;
-  heroIntro: string;
-  contextLead: string;
-  residentialFocus: string;
-  commercialFocus: string;
-  automotiveFocus: string;
-  responseFlow: string;
-  landmarks: string[];
-  nearbyAreas: string[];
-  faq: AreaFaqItem[];
-};
-
-export const ARLINGTON_NEIGHBORHOODS = [
-  "Arlington VA",
-  "Ballston",
-  "Clarendon",
-  "Rosslyn",
-  "Crystal City",
-  "Pentagon City",
-  "Courthouse",
-  "Shirlington",
-  "Columbia Pike",
-  "Westover",
-  "Arlington Ridge",
-  "Cherrydale",
-  "Lyon Village",
-  "Bluemont",
-  "Penrose",
-  "Douglas Park",
-  "Fairlington",
-  "Aurora Highlands",
-];
-
-export const AREA_LINKS = [
-  { slug: "ballston-locksmith", label: "Ballston locksmith" },
-  { slug: "clarendon-locksmith", label: "Clarendon locksmith" },
-  { slug: "rosslyn-locksmith", label: "Rosslyn locksmith" },
-  { slug: "crystal-city-locksmith", label: "Crystal City locksmith" },
-  { slug: "pentagon-city-locksmith", label: "Pentagon City locksmith" },
-  { slug: "courthouse-locksmith", label: "Courthouse locksmith" },
-  { slug: "shirlington-locksmith", label: "Shirlington locksmith" },
-  { slug: "columbia-pike-locksmith", label: "Columbia Pike locksmith" },
-  { slug: "westover-locksmith", label: "Westover locksmith" },
-  { slug: "arlington-ridge-locksmith", label: "Arlington Ridge locksmith" },
-];
-
+import type { CopySection, Question } from "@/lib/content-types";
+import { AREA_LINKS } from "./navigation.ts";
+export { AREA_LINKS } from "./navigation.ts";
+export const ARLINGTON_NEIGHBORHOODS = AREA_LINKS.map((area) => area.name);
 export const ARLINGTON_ZIP_CODES = [
   "22201",
   "22202",
@@ -65,463 +13,539 @@ export const ARLINGTON_ZIP_CODES = [
   "22209",
   "22213",
 ];
-
-export const AREA_ZIP_CODES: Record<string, string> = {
-  "ballston-locksmith": "22203",
-  "clarendon-locksmith": "22201",
-  "rosslyn-locksmith": "22209",
-  "crystal-city-locksmith": "22202",
-  "pentagon-city-locksmith": "22202",
-  "courthouse-locksmith": "22201",
-  "shirlington-locksmith": "22206",
-  "columbia-pike-locksmith": "22204",
-  "westover-locksmith": "22205",
-  "arlington-ridge-locksmith": "22206",
+export type AreaPageData = {
+  slug: string;
+  name: string;
+  intro: string;
+  sections: CopySection[];
+  faq: Question[];
+  nearby: string[];
+  services: string[];
 };
-
 export const AREA_PAGES: AreaPageData[] = [
   {
     slug: "ballston-locksmith",
-    areaName: "Ballston",
-    title: "Ballston Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Ballston Arlington VA? Call (703) 244-0559 for 24/7 lockout help, key extraction, lock repair and emergency door service.",
-    h1: "24/7 Locksmith in Ballston, Arlington VA",
-    heroIntro:
-      "Locked out near Ballston Quarter, North Glebe Road, or the Ballston-MU Metro area? Call (703) 244-0559 for immediate emergency locksmith dispatch. We provide call-first mobile support for homes, apartment towers, offices, retail doors, and vehicle lockouts throughout Ballston.",
-    contextLead:
-      "Ballston has constant movement between residential high-rises, office corridors, and evening retail traffic. That means locksmith calls can happen at any hour, from early commuter lockouts to late-night building access problems. Our local dispatch flow is built for that pace.",
-    residentialFocus:
-      "Residential locksmith requests in Ballston often include apartment lockouts, deadbolt alignment issues, rekeying after move-ins, and worn key problems on older cylinders. We prioritize non-destructive entry when possible and explain each option before work begins.",
-    commercialFocus:
-      "Commercial locksmith work in Ballston commonly involves storefront lock repair, panic bar service, emergency door hardware issues, and urgent office re-entry before opening hours. We focus on restoring access while protecting the door, frame, and lock body whenever possible.",
-    automotiveFocus:
-      "Car lockout and key extraction calls are common around garages, curbside parking, and mixed-use properties in Ballston. If keys are locked in the vehicle or a key snaps in a lock, call us for fast mobile response with lock-safe tools and clear next steps.",
-    responseFlow:
-      "When you call, we confirm your Ballston location, lock type, and access issue, then dispatch the nearest available locksmith. If you are in an active lockout, we prioritize urgency and keep communication simple: where you are, what happened, and what to expect when the technician arrives.",
-    landmarks: ["Ballston Quarter", "Ballston-MU Metro", "Wilson Boulevard"],
-    nearbyAreas: ["Clarendon", "Courthouse", "Rosslyn"],
+    name: "Ballston",
+    intro:
+      "Request mobile locksmith help in Ballston, Arlington, VA, for an apartment, office, storefront or car lockout. When getting in touch, identify the entrance or parking location rather than only the building name. Call for an active lockout, or WhatsApp a location pin and a photo of the problem.",
+    sections: [
+      {
+        heading: "Give the entrance near Ballston Quarter or the Metro",
+        paragraphs: [
+          "Ballston Quarter, the Ballston-MU station area, Wilson Boulevard and North Glebe Road are useful orientation points, but a landmark is not an exact service address. An apartment entrance can be on a different side from a shopfront or garage entrance in the same development. Send the street number and the side of the building you can reach. If your map pin leads to a retail entrance while the locked door is residential, explain that difference before arranging a visit.",
+        ],
+      },
+      {
+        heading: "Separate apartment access from shared-building access",
+        paragraphs: [
+          "For a Ballston apartment or condo lockout, say whether you are outside the building or outside the unit. A lobby reader, garage gate and unit deadbolt are separate access points. Arrange entry with the concierge, managing agent or another authorized occupant where necessary. If your identification is in the apartment, discuss verification when you call rather than sending documents in a first message. Avoid changing shared hardware or trying to follow another resident into a secured area as a substitute for permission.",
+        ],
+      },
+      {
+        heading: "Describe a car’s garage location in usable detail",
+        paragraphs: [
+          "For a vehicle in a Ballston garage, a street address or location pin may identify the property but not the correct level. Include the vehicle make, model and year, the garage entrance, level and bay or visible sign. Explain whether an attendant or resident needs to authorize access. If the keys are in the trunk rather than the cabin, say so; vehicle security designs differ. Wait somewhere safe and contact emergency services first if anyone is at risk inside the car.",
+        ],
+      },
+      {
+        heading: "Office and shop doors need a clear scope",
+        paragraphs: [
+          "For an office suite or storefront around the Wilson Boulevard and Glebe Road corridors, identify whether the key will not turn, the latch will not release or the door is rubbing. A cylinder replacement alone may not address misalignment. Send a wider entrance photo and close views of the lock from both sides. If the opening is also an emergency exit, mention the push bar or other exit hardware and involve the responsible manager. Ask about availability, the proposed assessment and what work the quote includes before approving a visit.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "How fast can you reach Ballston in Arlington VA?",
+        question: "Is Ballston Quarter enough as my location?",
         answer:
-          "Response time depends on current call volume and traffic, but active lockouts in Ballston are prioritized for the fastest available dispatch.",
+          "Use it as a reference, then give the actual building address, entrance and parking level if relevant. Retail, residential and garage entrances can be separate within the same property.",
       },
       {
-        question: "Do you handle apartment and condo lockouts in Ballston?",
+        question: "Can I request rekeying for a Ballston apartment?",
         answer:
-          "Yes. We provide residential lockout support for apartments, condos, and townhomes in Ballston with lock-safe entry methods when possible.",
+          "Confirm the landlord or managing agent’s permission and any building key-system requirements. Send photos of the lock and explain which doors currently share a key.",
       },
-      {
-        question: "Can you repair storefront locks in Ballston?",
-        answer:
-          "Yes. We handle storefront lock repair, panic bar issues, and emergency door hardware service for Ballston businesses.",
-      },
-      {
-        question: "Do you offer 24/7 emergency locksmith service in Ballston?",
-        answer:
-          "Yes. Call (703) 244-0559 any time for emergency locksmith dispatch in Ballston and nearby Arlington neighborhoods.",
-      },
+    ],
+    nearby: [
+      "clarendon-locksmith",
+      "courthouse-locksmith",
+      "westover-locksmith",
+    ],
+    services: [
+      "emergency-locksmith-arlington-va",
+      "residential-locksmith-arlington",
+      "car-lockout-arlington",
     ],
   },
   {
     slug: "clarendon-locksmith",
-    areaName: "Clarendon",
-    title: "Clarendon Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Clarendon Arlington VA? Call (703) 244-0559 for 24/7 lockout service, car lockout help, key extraction and lock repair.",
-    h1: "24/7 Locksmith in Clarendon, Arlington VA",
-    heroIntro:
-      "If you are locked out in Clarendon, call (703) 244-0559 for fast emergency locksmith dispatch. We provide mobile service for residential entries, commercial lockouts, car lockout calls, key extraction, and emergency lock repair throughout Clarendon.",
-    contextLead:
-      "Clarendon combines busy nightlife, dense residential buildings, and active business traffic, which creates a wide range of locksmith needs from late-night lockouts to morning storefront access issues. Our call-first process is built around these high-intent emergency moments.",
-    residentialFocus:
-      "Residential locksmith Clarendon calls often involve apartment lockouts, damaged deadbolts, and rekeying after roommate or tenant changes. We aim for non-destructive entry first, then discuss repair or rekey options based on lock condition and security goals.",
-    commercialFocus:
-      "Commercial locksmith Clarendon requests include office access recovery, storefront lock repair, panic bar troubleshooting, and emergency door hardware adjustments. Our goal is to restore access quickly while preserving hardware and reducing business downtime.",
-    automotiveFocus:
-      "Car lockout Arlington calls in Clarendon commonly happen near mixed-use buildings, side streets, and shared garages. We also handle broken key extraction when keys snap in door cylinders or ignition systems, with practical lock repair recommendations when needed.",
-    responseFlow:
-      "Call dispatch confirms your Clarendon location and lock issue, then routes the nearest technician equipped for that job type. We keep communication direct and actionable so you can move from lockout stress to safe re-entry as quickly as possible.",
-    landmarks: ["Clarendon Metro", "Clarendon Boulevard", "Washington Boulevard"],
-    nearbyAreas: ["Ballston", "Courthouse", "Lyon Village"],
+    name: "Clarendon",
+    intro:
+      "For a lockout or lock problem in Clarendon, Arlington, VA, call to describe the entrance and check current availability. WhatsApp is useful for a photo of a worn lock, a shop door or a vehicle location. Tell us whether the request concerns a home, business or car.",
+    sections: [
+      {
+        heading: "A station reference needs a street and a door",
+        paragraphs: [
+          "Clarendon station, Wilson Boulevard, Clarendon Boulevard and Washington Boulevard can help orient a conversation, but they do not identify which door needs service. A shop’s public entrance may be separate from an apartment entrance or service door. Give the street number and describe where you are waiting. If you can see a business sign, use it as an additional reference rather than assuming a map pin will identify a rear entrance. Keep the authorized property contact available while the visit is discussed.",
+        ],
+      },
+      {
+        heading: "Apartment and condo lockouts",
+        paragraphs: [
+          "If you are outside a Clarendon unit, explain whether the building is already accessible or whether a shared entrance is another barrier. Contact the landlord, managing agent or concierge about their access arrangements before requesting changes to common hardware. Say if the key is inside, a key has broken or the deadbolt is difficult to turn. Those are different situations and may require different work. Avoid repeatedly forcing a sticking key; describe whether pulling or lifting the door changes the symptom.",
+        ],
+      },
+      {
+        heading: "Restaurant and retail entrances",
+        paragraphs: [
+          "For a restaurant or shop, distinguish a customer entrance from a staff door, delivery opening or emergency exit. A failed keyed cylinder, a closer that does not bring the door into the frame and a push bar that will not release are not the same fault. Share photos of the full opening and the visible hardware from both sides. Do not restrain a panic bar or block an exit to work around a lock problem. Arrange authorization with the manager and landlord where necessary.",
+        ],
+      },
+      {
+        heading: "Vehicle locations and practical quote details",
+        paragraphs: [
+          "A Clarendon car lockout request should include the street or parking facility, level where relevant, make, model and year. Mention whether the keys are in the cabin or trunk and whether anyone is inside. For a door repair request, explain whether the property can still be secured. When you speak to someone, ask what the proposed visit covers, how any additional parts would be discussed and whether access restrictions affect the arrangement. An actual arrival estimate and service availability must be confirmed directly for the location, not inferred from a neighborhood page.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you provide late-night locksmith service in Clarendon?",
+        question:
+          "What if I need help outside normal office hours in Clarendon?",
         answer:
-          "Yes. We provide 24/7 emergency locksmith service in Clarendon, including nights, weekends, and holidays.",
+          "Call to check current availability for the lockout or hardware issue and your exact location. Confirm a visit and an arrival estimate directly rather than relying on a general hours assumption.",
       },
       {
-        question: "Can you unlock apartment doors without damage?",
+        question: "Should I send a photo of the front or rear shop door?",
         answer:
-          "When possible, we use non-destructive entry techniques first and explain options before any lock replacement is considered.",
+          "Send the door that has the problem and explain its role: customer entrance, staff access or exit. Include a wider view and any visible latch, closer or push bar.",
       },
-      {
-        question: "Do you help with office and retail lockouts in Clarendon?",
-        answer:
-          "Yes. We provide commercial locksmith support for Clarendon offices, storefronts, and mixed-use properties.",
-      },
-      {
-        question: "Should I call right away for a Clarendon lockout?",
-        answer:
-          "Yes. Calling (703) 244-0559 is the fastest way to get emergency locksmith dispatch in Clarendon.",
-      },
+    ],
+    nearby: ["ballston-locksmith", "courthouse-locksmith", "rosslyn-locksmith"],
+    services: [
+      "residential-locksmith-arlington",
+      "commercial-storefront-lockout",
+      "panic-bar-repair-arlington-va",
     ],
   },
   {
     slug: "rosslyn-locksmith",
-    areaName: "Rosslyn",
-    title: "Rosslyn Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Rosslyn Arlington VA? Call (703) 244-0559 for 24/7 emergency lockout help, key extraction, lock repair and door service.",
-    h1: "24/7 Locksmith in Rosslyn, Arlington VA",
-    heroIntro:
-      "Locked out in Rosslyn right now? Call (703) 244-0559 for 24/7 locksmith help. We dispatch mobile technicians for high-rise residential lockouts, office entries, commercial lock repair, vehicle lockouts, and broken key extraction across Rosslyn.",
-    contextLead:
-      "Rosslyn has dense office towers, condo buildings, and heavy commuter movement, especially near Key Bridge corridors and Metro routes. Locksmith calls in this area often require quick dispatch coordination and clear access planning.",
-    residentialFocus:
-      "Residential locksmith Rosslyn support includes condo lockouts, deadbolt replacement, rekeying after move-outs, and lock repair when cylinders stick or keys stop turning. We aim for lock-safe access and practical security improvements in one visit whenever possible.",
-    commercialFocus:
-      "Commercial locksmith Rosslyn calls frequently involve office suite lockouts, storefront hardware faults, emergency exit door concerns, and panic bar repairs. We restore secure access while minimizing disruption to tenants, teams, and daily operations.",
-    automotiveFocus:
-      "Car lockout Rosslyn requests can happen in structured parking, curb lanes, or office drop-off zones. We also handle broken keys and key extraction issues with careful methods that reduce unnecessary replacement costs.",
-    responseFlow:
-      "During dispatch, we verify your Rosslyn location, identify whether this is a residential, commercial, or automotive issue, and send a mobile locksmith with the right tools. Emergency lockouts are prioritized for the fastest available response.",
-    landmarks: ["Rosslyn Metro", "Key Bridge", "Wilson Boulevard"],
-    nearbyAreas: ["Courthouse", "Clarendon", "Arlington Ridge"],
+    name: "Rosslyn",
+    intro:
+      "Request mobile locksmith service in Rosslyn, Arlington, VA, for a condo, office suite, storefront or vehicle. High-rise buildings and structured parking make the entrance details important. Call for an active lockout, or send your location and a hardware photo on WhatsApp before discussing a visit.",
+    sections: [
+      {
+        heading: "Identify the building entrance around Rosslyn",
+        paragraphs: [
+          "Rosslyn station, North Lynn Street, North Moore Street and Wilson Boulevard are useful reference points when describing where you are. A building’s postal address does not always point to its garage entrance, security desk or accessible pedestrian entry. Give the street number and name the entrance you can reach. If a directory or security desk controls access to the relevant floor, explain that arrangement before scheduling work. Avoid using a broad reference such as Key Bridge without the actual property or vehicle location.",
+        ],
+      },
+      {
+        heading: "Office-suite lockouts and building security",
+        paragraphs: [
+          "An office suite lock can be separate from the building’s entry reader or after-hours access system. Establish which part is preventing entry and who has authority over it. A tenant’s request does not automatically authorize changes to lobby hardware or a shared access system. Have the manager, tenant representative or property contact available to approve the scope and arrange floor access. If the office door is rubbing, the key spins or a latch does not release, describe those symptoms instead of assuming the cylinder is the only fault.",
+        ],
+      },
+      {
+        heading: "Condo access and a lost or trapped key",
+        paragraphs: [
+          "For a Rosslyn condo or apartment, first distinguish a unit door problem from a shared entrance issue. Ask the concierge or managing agent about an authorized spare-key or entry arrangement where applicable. If the key is trapped or broken, stop applying force and keep the remaining piece. Say whether you can enter through another authorized route and whether the door can still be secured. Discuss verification if identity documents are inside, but do not send access codes or document photos in an initial WhatsApp message.",
+        ],
+      },
+      {
+        heading: "Garages, vehicle details and the next step",
+        paragraphs: [
+          "A vehicle in structured parking needs a garage entrance, level and bay or visible marker in addition to a pin. Include the make, model and year, and say where the keys are. Ask who can authorize garage entry and remain reachable while the service request is assessed. For door or vehicle work, ask what the proposed visit includes and what could change after inspection. A photo can help explain a request but cannot establish hidden damage, guarantee a final price or confirm that every vehicle uses the same opening method.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you serve Rosslyn office buildings and condos?",
+        question:
+          "Can an office tenant authorize work on a Rosslyn lobby lock?",
         answer:
-          "Yes. We provide locksmith service for Rosslyn residential towers, office suites, and commercial properties.",
+          "Check with building management first. Common entrances, floor access systems and suite locks can have different owners and approval arrangements. Be specific about the affected door.",
       },
       {
-        question: "Can you help with panic bar and exit door problems in Rosslyn?",
+        question: "What should I send for a car inside a Rosslyn garage?",
         answer:
-          "Yes. We handle panic bar repair, emergency exit door issues, and related commercial door hardware service.",
+          "The garage entrance, level and bay or visible marker, make, model, year and a location pin. Mention any attendant or building-security arrangement needed to reach the vehicle.",
       },
-      {
-        question: "Do you offer car lockout help in Rosslyn?",
-        answer:
-          "Yes. We provide mobile car lockout service in Rosslyn and nearby Arlington neighborhoods.",
-      },
-      {
-        question: "Is Rosslyn locksmith service available 24/7?",
-        answer:
-          "Yes. Call (703) 244-0559 any time for emergency locksmith dispatch in Rosslyn.",
-      },
+    ],
+    nearby: [
+      "courthouse-locksmith",
+      "clarendon-locksmith",
+      "ballston-locksmith",
+    ],
+    services: [
+      "commercial-storefront-lockout",
+      "car-lockout-arlington",
+      "key-extraction-lock-repair",
     ],
   },
   {
     slug: "crystal-city-locksmith",
-    areaName: "Crystal City",
-    title: "Crystal City Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Crystal City Arlington VA? Call (703) 244-0559 for 24/7 emergency lockout help, key extraction, lock repair and door hardware service.",
-    h1: "24/7 Locksmith in Crystal City, Arlington VA",
-    heroIntro:
-      "Need urgent locksmith service in Crystal City? Call (703) 244-0559 for 24/7 lockout support. We dispatch mobile locksmith technicians for residential lockouts, commercial entry problems, car lockouts, and key extraction throughout Crystal City.",
-    contextLead:
-      "Crystal City includes dense residential blocks, hotels, offices, and high-traffic streets connected to the National Landing corridor. Locksmith calls here often require fast response and clear coordination for secure re-entry.",
-    residentialFocus:
-      "Residential locksmith Crystal City requests include apartment lockouts, worn lock cylinders, lock rekeying after tenant turnover, and deadbolt replacement for upgraded security. We prioritize non-destructive entry where possible and explain each option clearly.",
-    commercialFocus:
-      "Commercial locksmith Crystal City service covers storefront lock repair, office lockouts, panic bar repair, and emergency door hardware issues. We focus on restoring access quickly while protecting door function and reducing avoidable downtime.",
-    automotiveFocus:
-      "Car lockout Crystal City calls are common in garages, loading areas, and street parking zones. If a key is locked in the vehicle or breaks in the lock, we provide mobile response and key extraction service with practical lock repair guidance.",
-    responseFlow:
-      "Dispatch starts with your exact Crystal City location, lock type, and urgency level. We route the nearest technician and keep communication focused on fast access, transparent pricing, and dependable locksmith support.",
-    landmarks: ["Crystal City Metro", "National Landing", "Long Bridge Drive"],
-    nearbyAreas: ["Pentagon City", "Aurora Highlands", "Arlington Ridge"],
+    name: "Crystal City",
+    intro:
+      "For a car lockout, apartment access problem or commercial door fault in Crystal City, Arlington, VA, call with the exact entrance or parking location. You can also use WhatsApp to send a location pin and photos. Include whether the request concerns a home, business or vehicle.",
+    sections: [
+      {
+        heading: "Crystal Drive is a reference, not a complete address",
+        paragraphs: [
+          "Crystal Drive, South Bell Street, 18th Street South and the Crystal City station area can help identify the part of the neighborhood involved. A residential tower, office lobby and garage entrance may have separate access points even at the same development. Send the actual street number and explain which side or entrance you can use. If your phone’s location pin appears at street level while you are below ground, add the parking level and a sign or bay reference in the message.",
+        ],
+      },
+      {
+        heading: "A garage lockout needs more than a map pin",
+        paragraphs: [
+          "When keys are locked in a car, give the make, model and year and say whether the keys are in the cabin or trunk. For a Crystal City garage, name the vehicle entrance and tell us if an attendant, resident or access card is needed. Arrange authorized entry rather than assuming a public lobby leads to the parking area. Stay in a safe place while discussing help. If a child, vulnerable person or animal is at risk in the car, contact emergency services first.",
+        ],
+      },
+      {
+        heading: "Residential doors and managed-building access",
+        paragraphs: [
+          "For an apartment or condo, say whether you are locked out of your unit, the lobby or both. A building reader or garage gate may be managed separately from the unit’s mechanical lock. Involve the concierge, landlord or managing agent for permission and entry arrangements. If a key has snapped or the deadbolt catches, describe any earlier stiffness or door rubbing. The cause may involve the cylinder or alignment, so do not assume every access problem requires a new lock.",
+        ],
+      },
+      {
+        heading: "Commercial hardware and service planning",
+        paragraphs: [
+          "An office suite or storefront request should identify the door’s role and its visible fault. Say whether staff cannot enter, the premises cannot be secured or an exit device is affected. Share full-door and close-up hardware photos without taking covers off or disconnecting anything. Keep a person with approval authority reachable, especially in a managed building. Ask what the visit includes, which parts may be needed and how any revised work would be authorized. Current availability and an arrival estimate must be confirmed for the actual location and task.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Can you respond to Crystal City lockouts after business hours?",
+        question: "Can a location pin show my garage level?",
         answer:
-          "Yes. We provide 24/7 emergency locksmith service in Crystal City for residential, commercial, and automotive lockouts.",
+          "Usually it should not be relied on for that detail. Add the garage entrance, level, bay or visible marker and explain any gate or attendant access arrangement.",
       },
       {
-        question: "Do you repair commercial storefront locks in Crystal City?",
+        question: "What if the apartment lobby is locked as well as my unit?",
         answer:
-          "Yes. We handle storefront lock repair, panic bar adjustments, and emergency door hardware issues.",
+          "Explain both barriers and contact the building’s authorized representative. Shared access and a unit lock may need different permissions and should not be treated as the same job.",
       },
-      {
-        question: "Do you provide broken key extraction in Crystal City?",
-        answer:
-          "Yes. We remove broken keys from locks and evaluate whether lock repair or rekeying is needed.",
-      },
-      {
-        question: "What is the fastest way to request service in Crystal City?",
-        answer:
-          "Call (703) 244-0559 directly for immediate locksmith dispatch in Crystal City.",
-      },
+    ],
+    nearby: ["pentagon-city-locksmith", "arlington-ridge-locksmith"],
+    services: [
+      "car-lockout-arlington",
+      "residential-locksmith-arlington",
+      "commercial-storefront-lockout",
     ],
   },
   {
     slug: "pentagon-city-locksmith",
-    areaName: "Pentagon City",
-    title: "Pentagon City Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Pentagon City Arlington VA? Call (703) 244-0559 for 24/7 lockout help, key extraction, lock repair and emergency door service.",
-    h1: "24/7 Locksmith in Pentagon City, Arlington VA",
-    heroIntro:
-      "Locked out in Pentagon City? Call (703) 244-0559 for immediate locksmith dispatch. We provide 24/7 mobile service for home lockouts, office and storefront access issues, car lockout calls, and broken key extraction across Pentagon City.",
-    contextLead:
-      "Pentagon City combines major retail traffic, residential towers, hotels, and office destinations, which creates steady demand for rapid locksmith response. Calls can range from urgent lockouts to planned lock repairs that still require same-day service.",
-    residentialFocus:
-      "Residential locksmith Pentagon City support includes apartment lockouts, rekeying after move-ins, deadbolt replacement, and lock repairs when keys bind or cylinders fail. We prioritize entry methods that protect existing hardware whenever possible.",
-    commercialFocus:
-      "Commercial locksmith Pentagon City calls often involve storefront doors, office lockouts, panic bar issues, and emergency exit hardware concerns. We focus on restoring secure access while helping business teams reopen quickly and safely.",
-    automotiveFocus:
-      "Car lockout Pentagon City service covers vehicle entries in garages, curbside pickups, and nearby parking structures. We also provide key extraction when keys break in the lock, followed by lock testing and clear recommendations.",
-    responseFlow:
-      "Our call-first process confirms your Pentagon City location and service type, then dispatches the nearest locksmith for fast response. Emergency cases are prioritized, and pricing is discussed before work begins.",
-    landmarks: ["Fashion Centre at Pentagon City", "Pentagon City Metro", "Army Navy Drive"],
-    nearbyAreas: ["Crystal City", "Arlington Ridge", "Aurora Highlands"],
+    name: "Pentagon City",
+    intro:
+      "Request locksmith help in Pentagon City, Arlington, VA, for a home, car or commercial entrance. Call if you are locked out now. For hardware questions or a quote discussion, WhatsApp a photo and location details so the actual door or vehicle can be identified before a visit is arranged.",
+    sections: [
+      {
+        heading: "Separate a shopping landmark from your service entrance",
+        paragraphs: [
+          "Pentagon City station and the Fashion Centre at Pentagon City are useful landmarks, while South Hayes Street, Army Navy Drive and 15th Street South help orient a street location. Do not stop at the landmark name when describing a lockout. A shopfront, residential lobby, service entrance and parking access point can be in different places. Give the building address and the entrance where an authorized person can meet. If the property restricts access, arrange that with the responsible contact before confirming a visit.",
+        ],
+      },
+      {
+        heading: "Vehicle lockouts around shops and residences",
+        paragraphs: [
+          "Send the make, model and year, where the keys are, and the parking facility or street. If the vehicle is in a garage, add the level, bay or a visible sign and the correct vehicle entrance. A map pin alone may point to a pedestrian entrance or another level. Describe whether any person or animal is inside and take an immediate danger to emergency services. Avoid improvised tools around the window, trim or seals while waiting for an assessment of the suitable approach.",
+        ],
+      },
+      {
+        heading: "Apartment entry, move-ins and rekeying",
+        paragraphs: [
+          "For a Pentagon City apartment or condo, identify whether the issue is a missing key, a stiff cylinder or a door that catches in its frame. Explain any separate lobby or garage barrier. Contact the landlord, concierge or managing agent about shared access and permission for unit-lock changes. If the request follows a move or lost key, list which doors share the key and whether any lock is already damaged. Rekeying changes key access on compatible hardware; it is not a repair for every mechanical problem.",
+        ],
+      },
+      {
+        heading: "Retail and office-door requests",
+        paragraphs: [
+          "For a retail or office property, have an authorized manager available and explain whether the fault affects entry, closing security or an exit route. A push bar, closer and keyed cylinder each play a different role. Send photos of the full opening and the relevant hardware without dismantling it. Ask whether the proposed work is entry assistance, repair, replacement or a wider door assessment. Confirm the quote’s scope and how parts or additional findings would be discussed, rather than assuming all door issues are included in a lockout request.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you provide locksmith service near Pentagon City Metro?",
+        question: "Is the mall or station name enough to arrange a visit?",
         answer:
-          "Yes. We dispatch mobile locksmith technicians throughout Pentagon City, including Metro-adjacent blocks.",
+          "Use it only as a reference. Give the street address, actual entrance or parking facility, and any garage level or access restriction relevant to reaching you.",
       },
       {
-        question: "Can you help with retail storefront lock problems in Pentagon City?",
+        question: "Can I request lock rekeying when moving into a condo?",
         answer:
-          "Yes. We provide storefront lock repair, commercial lockout help, and panic bar service in Pentagon City.",
+          "Check management approval and the existing key arrangement first. Describe how many locks are involved, which share a key and whether any have an existing mechanical fault.",
       },
-      {
-        question: "Do you unlock vehicles in Pentagon City parking garages?",
-        answer:
-          "Yes. We handle car lockout service in Pentagon City garages and nearby parking areas.",
-      },
-      {
-        question: "Is emergency locksmith service available 24/7 in Pentagon City?",
-        answer:
-          "Yes. Call (703) 244-0559 any time for emergency locksmith dispatch in Pentagon City.",
-      },
+    ],
+    nearby: ["crystal-city-locksmith", "arlington-ridge-locksmith"],
+    services: [
+      "car-lockout-arlington",
+      "lock-rekeying-arlington-va",
+      "commercial-storefront-lockout",
     ],
   },
   {
     slug: "courthouse-locksmith",
-    areaName: "Courthouse",
-    title: "Courthouse Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Courthouse Arlington VA? Call (703) 244-0559 for 24/7 lockout service, key extraction, lock repair and emergency door support.",
-    h1: "24/7 Locksmith in Courthouse, Arlington VA",
-    heroIntro:
-      "If you need a locksmith in Courthouse, Arlington VA, call (703) 244-0559 for immediate dispatch. We provide around-the-clock help for emergency lockouts, residential lock repair, commercial access problems, and vehicle lockout calls.",
-    contextLead:
-      "Courthouse includes civic buildings, residential towers, and busy business corridors where access issues can escalate quickly. Our dispatch process is designed for urgent calls that need local response and clear service communication.",
-    residentialFocus:
-      "Residential locksmith Courthouse calls include apartment lockouts, broken keys, lock rekeying after occupancy changes, and deadbolt replacement. We use lock-safe techniques when possible and explain repair choices before any work starts.",
-    commercialFocus:
-      "Commercial locksmith Courthouse service includes office suite lockouts, storefront lock repair, panic bar adjustments, and emergency exit hardware troubleshooting. We work to restore secure access while minimizing operational delays.",
-    automotiveFocus:
-      "Car lockout Courthouse requests happen in street parking zones, garage entries, and mixed-use lots. We also provide key extraction from damaged locks and can advise on lock repair when wear or alignment causes repeated failures.",
-    responseFlow:
-      "When you call, we verify your Courthouse location, identify whether this is residential, commercial, or automotive service, and dispatch the nearest available locksmith with the right tools for the issue.",
-    landmarks: ["Courthouse Metro", "Clarendon Boulevard", "Arlington courthouse district"],
-    nearbyAreas: ["Rosslyn", "Clarendon", "Ballston"],
+    name: "Courthouse",
+    intro:
+      "For locksmith service in Courthouse, Arlington, VA, describe the unit, office suite, shop or vehicle that needs attention. Call to check availability for an active lockout, or send a photo on WhatsApp for a repair discussion. A neighborhood name is useful, but the actual entrance and authorized contact matter most.",
+    sections: [
+      {
+        heading: "Use the address around the Courthouse station area",
+        paragraphs: [
+          "Courthouse station, North Courthouse Road, Wilson Boulevard and Clarendon Boulevard can orient the request, but they do not identify every building entrance. Be specific about whether you are at a residential lobby, an office suite entrance, a shopfront or a garage. If a map pin points across the block or to a different door, add a short explanation of the entrance you can reach. For a managed property, arrange access with security or the managing agent before assuming a visitor can reach the relevant floor.",
+        ],
+      },
+      {
+        heading: "Office access and authority to approve work",
+        paragraphs: [
+          "For an office lockout, distinguish a suite lock from the building’s shared access controls. Ask who can authorize entry or changes to the actual door; an employee’s access problem does not automatically provide permission to replace building hardware. Tell us if the key turns, jams or has broken, and whether a latch still holds the door. A photo of each side and a wider view helps describe what is present. Do not remove components to identify a fault before the request is assessed.",
+        ],
+      },
+      {
+        heading: "Condo and apartment key problems",
+        paragraphs: [
+          "When a Courthouse resident is locked out, a unit deadbolt and a shared lobby barrier may require different arrangements. Check with the concierge or landlord about an authorized spare or managed-entry option. If identification is locked inside, discuss a verification plan on the phone. For a recurring stiff lock, describe any rubbing or need to pull the door when turning the key. A rekey request after a move should also identify which doors share the key and any management requirements that apply.",
+        ],
+      },
+      {
+        heading: "Car locations and commercial exit concerns",
+        paragraphs: [
+          "A car lockout request should include the vehicle make, model and year, parking street or garage entrance, level and visible location marker. Say whether the keys are in the cabin or trunk. For a business door, say if the issue affects an exit and whether the premises are occupied; do not block or restrain exit hardware. In either case, ask about the proposed visit, scope and price before approving work. Availability and an arrival estimate need to be confirmed directly for the actual service request.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you serve Courthouse condos and apartments?",
+        question: "Can an employee arrange work on an office suite lock?",
         answer:
-          "Yes. We provide residential locksmith support for Courthouse apartments, condos, and townhomes.",
+          "Arrange approval with the person responsible for the suite and check building-management requirements. Describe whether shared building access or only the tenant’s door is involved.",
       },
       {
-        question: "Can you help with office lockouts in Courthouse?",
+        question:
+          "What should I tell you if my key broke at a Courthouse apartment?",
         answer:
-          "Yes. We handle commercial lockouts, storefront lock issues, and emergency door hardware calls in Courthouse.",
+          "Say whether the door is open or closed, how much of the fragment is visible and whether another authorized entry is available. Keep the remaining key piece without pushing it back into the cylinder.",
       },
-      {
-        question: "Do you offer broken key extraction in Courthouse?",
-        answer:
-          "Yes. We provide key extraction and lock testing for Courthouse residential and commercial locks.",
-      },
-      {
-        question: "How do I get emergency locksmith dispatch in Courthouse?",
-        answer:
-          "Call (703) 244-0559 for immediate locksmith response in Courthouse and nearby Arlington neighborhoods.",
-      },
+    ],
+    nearby: ["rosslyn-locksmith", "clarendon-locksmith", "ballston-locksmith"],
+    services: [
+      "commercial-storefront-lockout",
+      "broken-key-removal-arlington-va",
+      "residential-locksmith-arlington",
     ],
   },
   {
     slug: "shirlington-locksmith",
-    areaName: "Shirlington",
-    title: "Shirlington Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Shirlington Arlington VA? Call (703) 244-0559 for 24/7 lockout help, key extraction, lock repair and commercial door service.",
-    h1: "24/7 Locksmith in Shirlington, Arlington VA",
-    heroIntro:
-      "Locked out in Shirlington? Call (703) 244-0559 for fast emergency locksmith service. We provide mobile support for residential lockouts, office and storefront lock problems, vehicle lockouts, and key extraction across Shirlington.",
-    contextLead:
-      "Shirlington has a mix of residential communities, walkable retail, and service businesses that create varied locksmith needs throughout the day and night. Our team focuses on fast response and practical, call-first support.",
-    residentialFocus:
-      "Residential locksmith Shirlington jobs include home and condo lockouts, rekeying after key loss, deadbolt replacement, and lock repair on doors with wear-related alignment issues. We prioritize non-destructive entry methods when possible.",
-    commercialFocus:
-      "Commercial locksmith Shirlington service includes storefront lock repair, office access restoration, panic bar repair, and emergency exit door hardware adjustments. We help restore entry while protecting the property and limiting downtime.",
-    automotiveFocus:
-      "Car lockout Shirlington requests often happen around parking lots, curbside zones, and local business corridors. We also provide broken key extraction and lock function checks to avoid repeated access failures.",
-    responseFlow:
-      "Dispatch starts with your Shirlington location, lock type, and urgency. We route the nearest locksmith equipped for the job and keep communication focused on immediate access and transparent pricing.",
-    landmarks: ["Village at Shirlington", "Shirlington Road", "Campbell Avenue"],
-    nearbyAreas: ["Columbia Pike", "Fairlington", "Penrose"],
+    name: "Shirlington",
+    intro:
+      "Request mobile locksmith help in Shirlington, Arlington, VA, for a residential lockout, car lockout or shop-door problem. Call to discuss an active access issue. WhatsApp is useful for the location pin and photos that show a damaged lock, sticking door or unfamiliar commercial exit device.",
+    sections: [
+      {
+        heading:
+          "Describe the location around the village and surrounding streets",
+        paragraphs: [
+          "The Village at Shirlington, Campbell Avenue, South Randolph Street and Shirlington Road provide useful reference points, but service needs an exact property or parking location. A restaurant’s public entrance may be separate from staff or delivery access. An apartment entrance may be reached from another side of the same block. Give the street number and describe the door involved. If someone must meet a visitor at a gate or lobby, arrange that with the authorized resident or property contact before a visit is confirmed.",
+        ],
+      },
+      {
+        heading: "Restaurants and retail: name the door’s function",
+        paragraphs: [
+          "For a restaurant or shop, tell us whether the problem is a customer entrance, staff door, delivery opening or exit. A cylinder that will not turn and a push bar that fails to release need different attention. Photograph the full opening, the lock from both sides and any closer or exit device you can show safely. Do not disable alarms, tape latches or restrain a panic bar while arranging help. If people are at immediate risk, follow emergency procedures and involve the person responsible for the premises.",
+        ],
+      },
+      {
+        heading: "Residential doors and changes to keys",
+        paragraphs: [
+          "For a Shirlington home or condo, say whether the keys are inside, a key has snapped or the door itself is catching. Check permission with the landlord or managing agent where relevant, especially for shared entrances or a managed key system. If the request concerns lost keys or a new occupant, list which doors share a key and whether the locks are already worn. Compatible serviceable cylinders may have rekeying options, but changing a key does not resolve every latch or alignment fault.",
+        ],
+      },
+      {
+        heading: "Parking details and a useful service conversation",
+        paragraphs: [
+          "For a car lockout, identify the parking street or facility, the vehicle make, model and year, and whether the keys are in the cabin or trunk. Add a bay, level or visible marker when applicable. For door work, say whether the property can currently be secured and who can approve the scope. Ask what the proposed quote includes and how additional parts would be discussed. A photo helps explain the request, but it does not guarantee an arrival time, establish every hidden fault or replace a conversation about availability.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you provide locksmith service for Shirlington storefronts?",
+        question:
+          "What should a restaurant manager send about a sticking push bar?",
         answer:
-          "Yes. We handle storefront lock repair, lockouts, panic bar issues, and emergency door hardware service in Shirlington.",
+          "The exact door location, a full-opening photo, the bar and latch, and a description of whether it releases and latches. Explain whether the door is part of an occupied premises’ exit route.",
       },
       {
-        question: "Can you unlock my home in Shirlington without damage?",
+        question: "Can you discuss a rekey request for a Shirlington home?",
         answer:
-          "When possible, we use lock-safe entry techniques first and explain options before any replacement work.",
+          "Send photos of the locks, the number of doors and your key arrangement. Confirm the owner or managing agent’s approval and mention any existing stiffness or damage.",
       },
-      {
-        question: "Do you offer 24/7 car lockout service in Shirlington?",
-        answer:
-          "Yes. We provide around-the-clock mobile car lockout support in Shirlington and nearby Arlington areas.",
-      },
-      {
-        question: "What number should I call for locksmith help in Shirlington?",
-        answer:
-          "Call (703) 244-0559 for emergency locksmith dispatch in Shirlington.",
-      },
+    ],
+    nearby: ["columbia-pike-locksmith", "arlington-ridge-locksmith"],
+    services: [
+      "panic-bar-repair-arlington-va",
+      "storefront-lock-repair-arlington-va",
+      "residential-locksmith-arlington",
     ],
   },
   {
     slug: "columbia-pike-locksmith",
-    areaName: "Columbia Pike",
-    title: "Columbia Pike Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith on Columbia Pike in Arlington VA? Call (703) 244-0559 for 24/7 lockout help, key extraction, lock repair and mobile locksmith service.",
-    h1: "24/7 Locksmith in Columbia Pike, Arlington VA",
-    heroIntro:
-      "Need urgent locksmith help on Columbia Pike? Call (703) 244-0559 for 24/7 dispatch. We provide mobile lockout service for homes, apartments, offices, storefronts, and vehicles across the Columbia Pike corridor in Arlington.",
-    contextLead:
-      "Columbia Pike includes dense housing, local businesses, and high daily traffic, which means lockouts and access issues can happen at any time. Our call-first service is designed for urgent entry needs and practical lock repair decisions.",
-    residentialFocus:
-      "Residential locksmith Columbia Pike calls often include apartment lockouts, rekeying after turnover, and lock repair for older door hardware. We focus on non-destructive entry where possible and recommend upgrades only when needed.",
-    commercialFocus:
-      "Commercial locksmith Columbia Pike service includes storefront lock repair, office re-entry, panic bar adjustments, and emergency door hardware fixes. Our technicians prioritize quick, secure access so businesses can continue operating.",
-    automotiveFocus:
-      "Car lockout Columbia Pike support includes keys locked inside vehicles, trunk lockouts, and broken key extraction. We provide mobile response and test lock function before completion to reduce repeated failures.",
-    responseFlow:
-      "When you call, we confirm your Columbia Pike location and service type, then dispatch the nearest available locksmith. Emergency lockouts are prioritized, and pricing is reviewed before work starts.",
-    landmarks: ["Columbia Pike corridor", "Penrose Square", "Walter Reed Drive"],
-    nearbyAreas: ["Shirlington", "Penrose", "Douglas Park"],
+    name: "Columbia Pike",
+    intro:
+      "For a lockout or lock repair along Columbia Pike in Arlington, VA, give the actual address and nearest cross street. Call for an active access issue, or WhatsApp a location pin and a hardware photo. Explain whether the request involves a home, apartment, storefront or vehicle.",
+    sections: [
+      {
+        heading: "A long corridor needs a precise location",
+        paragraphs: [
+          "Columbia Pike covers a corridor rather than a single building or entrance. References such as Penrose Square, South Walter Reed Drive or South Glebe Road help narrow the conversation, but the street number and cross street are more useful for a visit. Say whether access is from the Pike, a side street or a rear entrance. If the locked door is above a shop or behind a mixed-use property, explain how an authorized person can meet someone at the correct entry point.",
+        ],
+      },
+      {
+        heading: "Apartment and house lockouts",
+        paragraphs: [
+          "Describe whether a missing key, a snapped key or a lock that no longer turns is keeping you out. If a door catches or needs lifting, mention that separately; the frame or alignment can affect the lock. Stop forcing a bending or trapped key. For rental or managed property, check the landlord’s access arrangements and approval for any hardware change. A building entrance and a unit lock are different barriers, so identify each rather than assuming a unit visit includes common-area access.",
+        ],
+      },
+      {
+        heading: "Storefront locks and commercial doors",
+        paragraphs: [
+          "For a business on the corridor, say whether the door prevents opening, cannot be secured at closing or has an exit-device problem. Send a full-door view and close photographs of the visible cylinder, latch and closer. A worn lock and a door that no longer aligns may need different work. Have the manager or authorized property contact available to discuss the scope. Do not wedge, chain or restrain an emergency exit as a workaround for a lock fault or a door that will not latch.",
+        ],
+      },
+      {
+        heading: "Vehicle lockouts and preparing a quote request",
+        paragraphs: [
+          "A car at a curb, surface lot or apartment parking area should be identified by make, model, year and exact position. Add a location pin and say whether the keys are in the passenger compartment or trunk. If an access gate is involved, coordinate entry with the responsible person. For any service request, explain if the property or vehicle is accessible by another authorized route. Ask about current availability, proposed work and what a quote includes. Additional damage or parts should be discussed as a change to scope, not assumed from a photo alone.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you provide locksmith service throughout the Columbia Pike corridor?",
+        question: "What location details help on Columbia Pike?",
         answer:
-          "Yes. We dispatch mobile locksmith service across Columbia Pike and nearby Arlington neighborhoods.",
+          "The street number, nearest cross street, entrance side and a location pin. Explain any side-street, rear-door or gated-parking access rather than using only the corridor name.",
       },
       {
-        question: "Can you repair older locks in Columbia Pike homes?",
+        question: "Can an older lock be rekeyed instead of replaced?",
         answer:
-          "Yes. We provide lock repair, rekeying, and deadbolt replacement based on the door and cylinder condition.",
+          "That depends on the cylinder’s condition and compatibility. Send a photo and describe any stiffness, damage or alignment issue so rekeying and repair can be discussed separately.",
       },
-      {
-        question: "Do you help local businesses with storefront lock issues on Columbia Pike?",
-        answer:
-          "Yes. We handle storefront lock repair, panic bar service, and emergency commercial lockout calls.",
-      },
-      {
-        question: "Is Columbia Pike locksmith service available 24/7?",
-        answer:
-          "Yes. Call (703) 244-0559 anytime for emergency locksmith service in Columbia Pike.",
-      },
+    ],
+    nearby: [
+      "shirlington-locksmith",
+      "ballston-locksmith",
+      "westover-locksmith",
+    ],
+    services: [
+      "emergency-locksmith-arlington-va",
+      "storefront-lock-repair-arlington-va",
+      "lock-rekeying-arlington-va",
     ],
   },
   {
     slug: "westover-locksmith",
-    areaName: "Westover",
-    title: "Westover Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Westover Arlington VA? Call (703) 244-0559 for 24/7 lockout help, key extraction, lock repair and emergency locksmith dispatch.",
-    h1: "24/7 Locksmith in Westover, Arlington VA",
-    heroIntro:
-      "If you are locked out in Westover, call (703) 244-0559 for 24/7 locksmith help. We provide mobile emergency service for home lockouts, commercial access issues, car lockout calls, and key extraction throughout Westover.",
-    contextLead:
-      "Westover blends residential streets with local business pockets, so locksmith calls can involve anything from house lockouts to storefront hardware concerns. Our dispatch approach is designed for quick neighborhood response.",
-    residentialFocus:
-      "Residential locksmith Westover service includes lockouts, rekeying after key loss, deadbolt replacement, and lock repair when doors become difficult to secure. We focus on lock-safe access methods and clear options before work begins.",
-    commercialFocus:
-      "Commercial locksmith Westover support covers storefront lock repair, office lockouts, panic bar troubleshooting, and emergency door hardware adjustments. We work to restore secure access with minimal interruption to daily operations.",
-    automotiveFocus:
-      "Car lockout Westover calls happen in neighborhood parking, driveways, and local business areas. If a key breaks in the lock, we provide key extraction and lock testing to confirm reliable function before completion.",
-    responseFlow:
-      "Our team confirms your Westover location and lock issue, then dispatches the nearest available technician. Emergency requests are prioritized, and phone communication stays focused on fast, practical re-entry.",
-    landmarks: ["Westover Village", "Washington Boulevard", "McKinley Road"],
-    nearbyAreas: ["Ballston", "Bluemont", "Lyon Village"],
+    name: "Westover",
+    intro:
+      "Request locksmith service in Westover, Arlington, VA, for a home lockout, rekeying, a damaged deadbolt or a local shop-door problem. Call to check availability for urgent access, or WhatsApp photos and the location. Say whether the door is currently open, locked shut or unable to secure.",
+    sections: [
+      {
+        heading: "Identify the property around Washington Boulevard",
+        paragraphs: [
+          "Westover Village and the Washington Boulevard shopping area are useful reference points, with North McKinley Road helping identify the part of the neighborhood involved. Give the actual residential or business address rather than only a shop or neighborhood landmark. For a house, explain whether the affected lock is at the front, rear or another entrance. If a gate, shared path or separate unit complicates access, describe the lawful route to the door and arrange to meet at the correct point.",
+        ],
+      },
+      {
+        heading: "House lockouts and deadbolts that catch",
+        paragraphs: [
+          "A house key that will not turn may be affected by the cylinder, latch or the position of the door in the frame. Say whether the deadbolt works with the door open and whether pulling or lifting has been necessary. Do not keep forcing the key to compensate for a rubbing door. If a key breaks, retain the remaining piece and avoid pushing it into the cylinder. Mention another authorized entrance if one is available so the access situation is clear.",
+        ],
+      },
+      {
+        heading: "Reviewing keys after a move or key loss",
+        paragraphs: [
+          "For a Westover move-in or lost-key request, list the front, rear and side doors you want included. Note which currently share a key and whether any lock is mechanically unreliable. Rekeying can change key access on compatible serviceable cylinders, while damaged hardware or a different key system may require another option. If the home is rented, check the landlord’s permission and any management-key requirement. Do not assume a key change also cancels a garage remote or electronic credential; those need a separate review.",
+        ],
+      },
+      {
+        heading: "Shopfront and vehicle details",
+        paragraphs: [
+          "For a local business, describe whether the lock will not release, the latch misses its strike or a closer fails to bring the door shut. Include any push bar or exit role in the request. For a parked vehicle, send the make, model, year and precise location, including a driveway or lot reference where useful. Before authorizing service, ask about availability and the proposed assessment, labour and parts. A remote description helps prepare the conversation but cannot establish every internal fault or a fixed response time for the neighborhood.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you provide locksmith service in Westover at night?",
+        question: "Is a sticking Westover house lock always a replacement job?",
         answer:
-          "Yes. We offer 24/7 emergency locksmith dispatch in Westover, including late-night and weekend calls.",
+          "No. Describe whether the issue occurs when the door is open and any rubbing or lifting needed. Alignment, a latch problem or cylinder wear may lead to different recommendations after assessment.",
       },
       {
-        question: "Can you help with residential lock rekeying in Westover?",
+        question: "What should I list for a rekeying quote?",
         answer:
-          "Yes. We provide lock rekeying, deadbolt replacement, and lock repair for Westover homes.",
+          "The number of doors and cylinders, which share a key, whether a working key exists, your desired key arrangement and any landlord approval or existing hardware fault.",
       },
-      {
-        question: "Do you handle storefront lock repair in Westover?",
-        answer:
-          "Yes. We provide commercial locksmith support including storefront lock repair and emergency door hardware service.",
-      },
-      {
-        question: "Who should I call for an urgent lockout in Westover?",
-        answer:
-          "Call (703) 244-0559 for immediate locksmith dispatch in Westover.",
-      },
+    ],
+    nearby: ["ballston-locksmith", "columbia-pike-locksmith"],
+    services: [
+      "lock-rekeying-arlington-va",
+      "deadbolt-replacement-arlington-va",
+      "residential-locksmith-arlington",
     ],
   },
   {
     slug: "arlington-ridge-locksmith",
-    areaName: "Arlington Ridge",
-    title: "Arlington Ridge Locksmith | 24/7 Emergency Locksmith Arlington VA",
-    description:
-      "Need a locksmith in Arlington Ridge Arlington VA? Call (703) 244-0559 for 24/7 lockout help, key extraction, lock repair and emergency door service.",
-    h1: "24/7 Locksmith in Arlington Ridge, Arlington VA",
-    heroIntro:
-      "Locked out in Arlington Ridge right now? Call (703) 244-0559 for immediate locksmith dispatch. We provide 24/7 mobile support for residential lockouts, office and storefront access issues, car lockouts, and broken key extraction.",
-    contextLead:
-      "Arlington Ridge includes hillside residential blocks, nearby business activity, and quick access routes toward Crystal City and Pentagon City. Locksmith needs here can shift quickly from home lockouts to urgent commercial door problems.",
-    residentialFocus:
-      "Residential locksmith Arlington Ridge service includes apartment and home lockouts, lock rekeying after occupancy changes, deadbolt upgrades, and lock repair for worn cylinders. We prioritize non-destructive entry when possible.",
-    commercialFocus:
-      "Commercial locksmith Arlington Ridge support includes storefront lock repair, business lockout response, panic bar service, and emergency exit door hardware adjustments for safer daily access.",
-    automotiveFocus:
-      "Car lockout Arlington Ridge calls often involve curbside lockouts, parked vehicles, and broken key situations. We provide mobile entry support and key extraction with practical recommendations for repair or rekeying.",
-    responseFlow:
-      "Dispatch confirms your Arlington Ridge location and issue type, then routes the nearest locksmith with the right tools. We keep the process focused on speed, transparency, and secure re-entry.",
-    landmarks: ["Arlington Ridge Road", "Army Navy Drive", "near Crystal City"],
-    nearbyAreas: ["Pentagon City", "Crystal City", "Aurora Highlands"],
+    name: "Arlington Ridge",
+    intro:
+      "For a home lockout, unreliable lock or vehicle access problem in Arlington Ridge, Arlington, VA, call to describe the location and check availability. WhatsApp a photo for a repair or rekey discussion. Explain the exact door or parking position rather than using a broad Arlington location pin.",
+    sections: [
+      {
+        heading: "Clarify the address and approach to the door",
+        paragraphs: [
+          "South Arlington Ridge Road, Army Navy Drive and 23rd Street South can help orient a request near the neighborhood, but the actual street number and entrance are needed to arrange service. For a property with more than one approach, say where an authorized person can meet. Identify a front door, rear entrance, separate unit or driveway clearly. A neighborhood or road name alone can leave the wrong part of the property in view, especially if the car or affected entrance is set back from the street.",
+        ],
+      },
+      {
+        heading: "Residential lockouts and worn hardware",
+        paragraphs: [
+          "For a house, apartment or condo, describe whether keys are inside, a key has snapped or the mechanism has stopped operating. Say if you can still enter through another authorized route and whether the door can be secured. If pulling, lifting or leaning on the door changes how the key turns, mention the alignment symptom rather than assuming a cylinder replacement is the entire answer. Avoid forcing a trapped key or trying an improvised tool in the lock while a visit is being discussed.",
+        ],
+      },
+      {
+        heading: "Rekeying and permission after a change of occupancy",
+        paragraphs: [
+          "A change of residents or a lost key is a reason to review who has access, not proof that every lock is defective. List the doors involved and the keys shared between them. Compatible serviceable cylinders may have rekeying options; damaged locks and mismatched systems may need a different proposal. For managed or rented property, confirm the owner or managing agent’s permission and any shared-key arrangements. If a building reader, garage remote or access fob is involved, arrange a separate credential review with its manager.",
+        ],
+      },
+      {
+        heading: "Vehicles and nearby commercial requests",
+        paragraphs: [
+          "For a car in a driveway, lot or garage, give the make, model, year and exact parking position, plus any gate or level information. Explain whether the keys are in the cabin or trunk. For a business door, identify the entrance and whether a push bar, closer or exit function is affected. In either case, discuss the proposed scope, any access restrictions and what the quote includes. Confirm availability and an arrival estimate directly, and review any additional work after assessment instead of treating a photo as a final diagnosis.",
+        ],
+      },
+    ],
     faq: [
       {
-        question: "Do you provide locksmith service across Arlington Ridge?",
+        question:
+          "What helps identify an Arlington Ridge house or vehicle location?",
         answer:
-          "Yes. We provide mobile locksmith service throughout Arlington Ridge and nearby Arlington neighborhoods.",
+          "The full street address, affected entrance or parking position and a location pin. Add the approach or meeting point where a property has more than one entrance.",
       },
       {
-        question: "Can you help with home and condo lockouts in Arlington Ridge?",
+        question: "Can I discuss rekeying and a deadbolt problem together?",
         answer:
-          "Yes. We handle residential lockouts, lock repair, rekeying, and deadbolt replacement in Arlington Ridge.",
+          "Yes. Identify which doors need new key access and describe any mechanical fault separately. Rekeying, door adjustment and replacing a damaged deadbolt address different needs.",
       },
-      {
-        question: "Do you offer commercial locksmith help in Arlington Ridge?",
-        answer:
-          "Yes. We provide business lockout response, storefront lock repair, and panic bar service.",
-      },
-      {
-        question: "Is Arlington Ridge locksmith service available 24/7?",
-        answer:
-          "Yes. Call (703) 244-0559 any time for emergency locksmith dispatch in Arlington Ridge.",
-      },
+    ],
+    nearby: [
+      "pentagon-city-locksmith",
+      "crystal-city-locksmith",
+      "shirlington-locksmith",
+    ],
+    services: [
+      "residential-locksmith-arlington",
+      "deadbolt-replacement-arlington-va",
+      "car-lockout-arlington",
     ],
   },
 ];
-
-export const AREA_PAGE_MAP = Object.fromEntries(
-  AREA_PAGES.map((area) => [area.slug, area]),
-) as Record<string, AreaPageData>;
+export function getArea(slug: string) {
+  return AREA_PAGES.find((area) => area.slug === slug);
+}
