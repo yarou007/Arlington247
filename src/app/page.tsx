@@ -6,8 +6,9 @@ import ContactActions from "@/components/ContactActions";
 import PriceFactors from "@/components/PriceFactors";
 import Faq from "@/components/Faq";
 import CallToAction from "@/components/CallToAction";
+import LocalCoverage from "@/components/LocalCoverage";
 import Icon from "@/components/Icon";
-import { AREA_LINKS, ARTICLE_LINKS } from "@/lib/navigation";
+import { ARTICLE_LINKS } from "@/lib/navigation";
 import { CALL_NUMBER_DISPLAY } from "@/lib/business";
 import { ARLINGTON_ZIP_CODES } from "@/lib/areas";
 import { HOME_FAQ } from "@/lib/seo";
@@ -170,21 +171,14 @@ export default function HomePage() {
             <p className="eyebrow">Service area</p>
             <h2>Across Arlington County, Virginia</h2>
             <p>
-              This is a mobile service, with no walk-in office. Choose your
+              Mobile service covers Arlington County, including streets beyond
+              the examples below, with no walk-in office. Choose your
               neighborhood for practical notes on building entrances, vehicle
               locations and the details to send when you request a visit.
             </p>
           </div>
-          <ul className="area-list">
-            {AREA_LINKS.map((a) => (
-              <li key={a.slug}>
-                <Link href={`/areas/${a.slug}`}>
-                  {a.name}
-                  <Icon name="arrow" size={16} />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <LocalCoverage />
+          <p><Link href="/areas" className="text-link">Find your neighborhood and street corridor →</Link></p>
           <p className="zip-list">
             Arlington ZIP codes: {ARLINGTON_ZIP_CODES.join(" · ")}.
           </p>

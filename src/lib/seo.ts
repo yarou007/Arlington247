@@ -33,6 +33,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     ...AREA_LINKS.map((area) => ({
       "@type": "Place",
       name: `${area.name}, Arlington, VA`,
+      url: `${DOMAIN}/areas/${area.slug}`,
     })),
   ],
   hasOfferCatalog: {

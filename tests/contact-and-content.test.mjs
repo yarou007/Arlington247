@@ -22,6 +22,7 @@ import {
 import { SERVICE_PAGES } from "../src/lib/services.ts";
 import { AREA_PAGES } from "../src/lib/areas.ts";
 import { ARTICLES } from "../src/lib/articles.ts";
+import { LOCAL_COVERAGE } from "../src/lib/local-coverage.ts";
 const wordCount = (page) =>
   [
     page.intro,
@@ -30,6 +31,16 @@ const wordCount = (page) =>
   ]
     .join(" ")
     .match(/\b\w+(?:['’]\w+)?\b/g)?.length || 0;
+
+test("street directory covers existing neighborhoods without inventing service locations", () => {
+  assert.deepEqual(LOCAL_COVERAGE.map((a) => a.slug).sort(), AREA_LINKS.map((a) => a.slug).sort());
+  for (const area of LOCAL_COVERAGE) {
+    const page = AREA_PAGES.find((p) => p.slug === area.slug);
+    const copy = page.sections.flatMap((section) => section.paragraphs).join(" ");
+    assert.ok(area.streets.length >= 2);
+    for (const street of area.streets) assert.ok(copy.includes(street), `${area.slug}: ${street}`);
+  }
+});
 function storage(initial = {}) {
   const data = { ...initial };
   return {

@@ -14,6 +14,7 @@ import {
   AREA_LINKS,
   ARTICLE_LINKS,
 } from "../src/lib/navigation.ts";
+import { LOCAL_COVERAGE } from "../src/lib/local-coverage.ts";
 const base = process.argv[2] || "http://127.0.0.1:3001";
 const decode = (str) =>
   str
@@ -26,6 +27,7 @@ const attr = (tag, key) =>
   decode(tag.match(new RegExp(`\\b${key}=["']([^"']*)["']`, "i"))?.[1] || "");
 const expected = [
   "/",
+  "/areas",
   ...SERVICE_LINKS.map((p) => `/services/${p.slug}`),
   ...AREA_LINKS.map((p) => `/areas/${p.slug}`),
   "/advice",
@@ -137,6 +139,13 @@ for (const path of expected) {
     `${path}: form/email/placeholder`,
   );
   const links = [...html.matchAll(/<a\b[^>]*>/g)].map((m) => m[0]);
+  if (path === "/areas") {
+    for (const area of LOCAL_COVERAGE) {
+      for (const street of area.streets)
+        check(mainText.includes(street), `Directory missing street: ${street}`);
+      check(links.some((tag) => attr(tag, "href") === `/areas/${area.slug}`), `Directory missing neighborhood: ${area.slug}`);
+    }
+  }
   const internals = [];
   let tel = 0,
     wa = 0;

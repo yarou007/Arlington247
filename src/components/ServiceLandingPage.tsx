@@ -64,6 +64,7 @@ export function ServiceLandingPage({ config }: { config: ServicePageConfig }) {
       <section className="related-strip">
         <div className="wrap">
           <h2>Service areas in Arlington, VA</h2>
+          <p><Link href="/areas">Find your neighborhood and street corridor →</Link></p>
           <ul>
             {AREA_LINKS.map((area) => (
               <li key={area.slug}>

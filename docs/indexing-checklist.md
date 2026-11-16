@@ -6,7 +6,7 @@ These are manual post-deployment actions. Local checks do not submit a URL to Go
 
 1. Deploy the reviewed Next.js build with the intended production domain. Keep every existing service and area path. The app canonicalizes `www` with a 301 and Next.js normalizes trailing slashes; configure HTTP-to-HTTPS at the hosting edge without a redirect loop.
 2. Confirm the live homepage, all 12 services, all 10 neighborhoods, advice index and all eight guides return 200 with their content in rendered HTML. Confirm unknown routes return 404 with noindex. Remove any staging-wide authentication/noindex restrictions from the intended public production deployment.
-3. Check `/robots.txt` and `/sitemap.xml`. The sitemap should contain exactly the 34 HTML URLs listed below; assets, 404 pages, robots and `llms.txt` are not indexed-page entries. Last-modified values are deliberately omitted rather than invented at build time.
+3. Check `/robots.txt` and `/sitemap.xml`. The sitemap should contain exactly the 35 HTML URLs listed below; assets, 404 pages, robots and `llms.txt` are not indexed-page entries. Last-modified values are deliberately omitted rather than invented at build time.
 4. Confirm one self-referencing HTTPS canonical per page, the new call number, valid structured data and the same public business identity on the Google Business Profile. Do not add a fabricated street address for this service-area business.
 
 ## Search Console actions
@@ -43,6 +43,8 @@ These are manual post-deployment actions. Local checks do not submit a URL to Go
 
 ### Neighborhood pages
 
+- https://arlington247lockrepair.com/areas
+
 - https://arlington247lockrepair.com/areas/ballston-locksmith
 - https://arlington247lockrepair.com/areas/clarendon-locksmith
 - https://arlington247lockrepair.com/areas/rosslyn-locksmith
@@ -77,7 +79,7 @@ These are manual post-deployment actions. Local checks do not submit a URL to Go
 | --------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------- |
 | Impressions, clicks and CTR       | Search Console; mobile/desktop, page and query                                        | Weekly, compare consistent 28-day periods |
 | Average position                  | Target query group and landing page, not only site average                            | Weekly                                    |
-| Indexed pages                     | Search Console Pages and URL Inspection; track the 34 intended HTML URLs separately   | After deployment and subsequent crawls    |
+| Indexed pages                     | Search Console Pages and URL Inspection; track the 35 intended HTML URLs separately   | After deployment and subsequent crawls    |
 | Phone-link clicks                 | GA4 `tel_click`, by page, button location and campaign                                | Weekly after real tag activation          |
 | WhatsApp-link clicks              | GA4 `whatsapp_click`, by page, button location and campaign                           | Weekly after real tag activation          |
 | Calls from the business profile   | Google Business Profile performance                                                   | Monthly                                   |
@@ -86,7 +88,7 @@ These are manual post-deployment actions. Local checks do not submit a URL to Go
 
 Track these query themes: emergency locksmith Arlington VA; lockout services Arlington; 24 hour locksmith Arlington; car lockout Arlington; locksmith near me Arlington; emergency door repair Arlington; storefront lock repair Arlington; panic bar repair Arlington; broken key removal Arlington; rekey Arlington. Preserve “VA”/“Virginia” in page targeting and review queries for Washington-state or Darlington confusion.
 
-The supplied baseline was 334 impressions, 2 clicks and 0.6% CTR over six months, with impressions only on the homepage. Keep that historical context separate from measured results after deployment. Clicks do not establish calls connected, jobs booked or messages sent.
+The earlier six-month baseline was 334 impressions and 2 clicks. The newer export for August 15–November 14, 2026 contains 55 impressions, 0 clicks and 0% CTR; only the homepage appears in the performance page breakdown. These periods overlap and differ in length, so they are not a controlled before/after comparison. See `docs/search-performance-analysis.md` for the current findings. Clicks do not establish calls connected, jobs booked or messages sent.
 
 ## Facts and account settings still needed from the owner
 

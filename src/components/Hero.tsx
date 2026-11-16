@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ContactActions from "@/components/ContactActions";
 import Icon from "@/components/Icon";
 export default function Hero() {
@@ -11,9 +12,18 @@ export default function Hero() {
           </p>
           <h1>Emergency Locksmith in Arlington, VA</h1>
           <p className="lede">
-            Mobile help for home, car and business lockouts.
+            Locked out or dealing with a broken lock? Mobile help for homes,
+            cars and businesses across Arlington County. Call to check
+            availability, an arrival estimate and pricing for your address.
           </p>
-          <ContactActions location="home-hero" />
+          <ContactActions location="home-hero" showNumber />
+          <p className="hero-area-links">
+            <Link href="/areas/ballston-locksmith">Ballston</Link> ·{" "}
+            <Link href="/areas/clarendon-locksmith">Clarendon</Link> ·{" "}
+            <Link href="/areas/rosslyn-locksmith">Rosslyn</Link> ·{" "}
+            <Link href="/areas/crystal-city-locksmith">Crystal City</Link> ·{" "}
+            <Link href="/areas">All Arlington service areas →</Link>
+          </p>
           <ul className="trust-list">
             <li>
               <Icon name="check" size={18} />

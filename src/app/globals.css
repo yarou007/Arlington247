@@ -510,6 +510,28 @@ svg {
   font-size: 1rem;
   color: var(--muted);
 }
+.hero-area-links {
+  max-width: 650px;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  gap: 20px;
+}
+.coverage-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.coverage-card h3 {
+  margin-top: 0;
+}
+.coverage-streets {
+  font-size: 1rem;
+  line-height: 1.7;
+}
 .faq-list {
   border-top: 1px solid var(--line);
   margin-top: 28px;

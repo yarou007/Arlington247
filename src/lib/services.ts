@@ -13,7 +13,7 @@ export type ServicePageConfig = {
 export const SERVICE_PAGES: ServicePageConfig[] = [
   {
     slug: "emergency-locksmith-arlington-va",
-    seoTitle: "Lockout Services Arlington, VA",
+    seoTitle: "Emergency Locksmith in Arlington, VA",
     summary:
       "Emergency locksmith for home and business lockouts in Arlington, VA.",
     h1: "Emergency Locksmith & Lockout Services in Arlington, VA",
@@ -60,7 +60,7 @@ export const SERVICE_PAGES: ServicePageConfig[] = [
         question:
           "Can I request emergency locksmith help outside normal office hours?",
         answer:
-          "Call to check current availability for your location and type of lockout. Ask for an arrival estimate and confirm the visit directly. No fixed response time or continuous availability is promised on this page.",
+          "Call with your Arlington address and type of lockout to check current availability. Ask for an arrival estimate and confirm the visit and proposed price directly before arranging service.",
       },
       {
         question: "Does every locked door have to be drilled?",

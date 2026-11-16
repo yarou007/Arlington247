@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AREA_PAGES, getArea } from "@/lib/areas";
+import { getLocalCoverage } from "@/lib/local-coverage";
 import { AREA_LINKS } from "@/lib/navigation";
 import { CALL_NUMBER_DISPLAY, DOMAIN } from "@/lib/business";
 import { BUSINESS_ID } from "@/lib/seo";
@@ -31,16 +32,26 @@ export default async function AreaPage({ params }: Props) {
   const area = getArea((await params).slug);
   if (!area) notFound();
   const path = `/areas/${area.slug}`;
+  const coverage = getLocalCoverage(area.slug);
   return (
     <>
       <Breadcrumbs
-        items={[{ label: `${area.name}, Arlington, VA`, href: path }]}
+        items={[
+          { label: "Arlington service areas", href: "/areas" },
+          { label: `${area.name}, Arlington, VA`, href: path },
+        ]}
       />
       <header className="page-hero">
         <div className="wrap">
           <p className="eyebrow">Arlington County, Virginia · Mobile service</p>
           <h1>Locksmith in {area.name}, Arlington, VA</h1>
           <p className="lede">{area.intro}</p>
+          {coverage && (
+            <p className="coverage-streets">
+              <strong>Nearby street references:</strong> {coverage.streets.join(" · ")}.
+              Share your exact address and entrance when calling.
+            </p>
+          )}
           <ContactActions path={path} location={`area-${area.slug}-hero`} />
         </div>
       </header>

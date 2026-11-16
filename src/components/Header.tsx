@@ -18,7 +18,7 @@ export default function Header() {
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           <Link href="/#services">Services</Link>
-          <Link href="/#areas">Areas</Link>
+          <Link href="/areas">Service areas</Link>
           <Link href="/advice">Advice</Link>
         </nav>
         <div className="header-phone">

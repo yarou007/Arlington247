@@ -61,6 +61,7 @@ export default function Footer() {
           <details className="footer-links">
             <summary>Arlington, VA areas</summary>
             <ul>
+              <li><Link href="/areas">All neighborhoods and streets</Link></li>
               {AREA_LINKS.map((a) => (
                 <li key={a.slug}>
                   <Link href={`/areas/${a.slug}`}>{a.name}</Link>
